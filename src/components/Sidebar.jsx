@@ -1,9 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
 import { CATEGORIES } from '../data/components';
+import { TOOLS } from '../data/tools';
 
 export default function Sidebar() {
   const location = useLocation();
   const current = location.hash.replace('#/c/', '');
+  const currentTool = location.hash.replace('#/tools/', '');
 
   return (
     <aside className="fixed left-0 top-0 z-20 flex h-screen w-64 flex-col border-r border-white/10 bg-black/40 backdrop-blur-xl">
@@ -15,6 +17,36 @@ export default function Sidebar() {
       </div>
 
       <nav className="flex-1 overflow-y-auto px-3 py-4">
+        {/* 工作室工具（最上方三栏） */}
+        <div className="mb-5">
+          <div className="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-white/40">
+            工作室 <span className="text-white/20">· Tools</span>
+          </div>
+          <ul className="space-y-0.5">
+            {TOOLS.map((tool) => {
+              const active = currentTool === tool.slug;
+              return (
+                <li key={tool.slug}>
+                  <Link
+                    to={`/tools/${tool.slug}`}
+                    className={`flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-colors ${
+                      active
+                        ? 'bg-cyan-400/15 text-cyan-200'
+                        : 'text-white/70 hover:bg-white/5 hover:text-white'
+                    }`}
+                  >
+                    <span className="text-base">{tool.icon}</span>
+                    <div>
+                      <div className="font-medium leading-tight">{tool.zh}</div>
+                      <div className="text-[10px] text-white/40">{tool.en}</div>
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
         {CATEGORIES.map((cat) => (
           <div key={cat.key} className="mb-5">
             <div className="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-white/40">

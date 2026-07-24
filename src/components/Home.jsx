@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { CATEGORIES, TOTAL_COUNT, READY_COUNT } from '../data/components';
+import { TOOLS } from '../data/tools';
 
 export default function Home() {
   return (
@@ -14,6 +15,25 @@ export default function Home() {
         把 reactbits.dev 左侧导航的全部动画与组件，按原布局复刻到你的个人网站，
         名称翻译为中文。目前已上线 <span className="font-bold text-cyan-300">{READY_COUNT}</span> / {TOTAL_COUNT} 个组件。
       </p>
+
+      {/* 工作室工具 */}
+      <div className="mt-10">
+        <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/40">工作室 · Tools</h2>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {TOOLS.map((tool) => (
+            <Link
+              key={tool.slug}
+              to={`/tools/${tool.slug}`}
+              className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-all hover:border-cyan-400/40 hover:bg-white/[0.06]"
+            >
+              <div className="text-3xl">{tool.icon}</div>
+              <h3 className="mt-3 text-lg font-bold text-white group-hover:text-cyan-300">{tool.zh}</h3>
+              <p className="mt-1 text-xs text-white/40">{tool.en}</p>
+              <p className="mt-2 text-sm text-white/50">{tool.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2">
         {CATEGORIES.map((cat) => {
