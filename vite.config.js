@@ -6,4 +6,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/sucaiku/',
   plugins: [react()],
+  assetsInclude: ['**/*.glb'],
 })

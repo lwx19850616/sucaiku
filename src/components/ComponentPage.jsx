@@ -2,12 +2,14 @@ import { useParams, Link } from 'react-router-dom';
 import { COMPONENTS_BY_SLUG } from '../data/components';
 import { TEXT_ANIMATION_DEMOS } from '../demos/TextAnimations';
 import { ANIMATION_DEMOS } from '../demos/Animations';
+import { COMPONENT_DEMOS } from '../demos/Components';
 import ErrorBoundary from './ErrorBoundary';
 
 // 按分类分发对应的演示映射
 const DEMO_MAPS = {
   'text-animations': TEXT_ANIMATION_DEMOS,
   'animations': ANIMATION_DEMOS,
+  'components': COMPONENT_DEMOS,
 };
 
 export default function ComponentPage() {
