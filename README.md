@@ -30,10 +30,9 @@ npm run dev      # 打开终端里给出的本地地址
 
 ## 部署到 GitHub Pages
 
-1. 在 GitHub 新建一个**公开**仓库，名字建议用 `portfolio`。
-2. 把本项目推送到该仓库的 `main` 分支（需要 Personal Access Token，见下）。
-3. 仓库 → **Settings → Pages**，Source 选 **GitHub Actions**。
-4. 等 Actions 跑完（几分钟），就能在 `https://你的用户名.github.io/portfolio/` 打开。
+1. 本项目已经推送到你的 **`sucaiku`** 公开仓库（仓库名即访问路径）。
+2. 仓库 → **Settings → Pages**，Source 选 **GitHub Actions**。
+3. 等 Actions 跑完（几分钟），就能在 `https://你的用户名.github.io/sucaiku/` 打开。
 
 ### 关于「密码推代码」
 
@@ -43,7 +42,7 @@ GitHub 从 2021 年起**不允许用账号密码直接推代码**，必须用
 
 ### 如果改了仓库名
 
-如果仓库不叫 `portfolio`，需要同步改两处：
+如果仓库不叫 `sucaiku`，需要同步改两处：
 - `vite.config.js` 里的 `base: '/你的仓库名/'`
 - `index.html` 里的 favicon 路径 `/你的仓库名/favicon.svg`
 然后重新 `npm run build` 再推送。
