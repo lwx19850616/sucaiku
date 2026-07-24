@@ -70,14 +70,16 @@ export const TEXT_ANIMATION_DEMOS = {
 
   'curved-loop': () =>
     demoWrap(
-      <CurvedLoop
-        marqueeText="组件库 中文动画 一比一复刻 "
-        className="text-2xl font-bold"
-        speed={2}
-        direction="left"
-        curveAmount={300}
-        interactive={false}
-      />
+      <div className="h-screen min-h-[320px] w-full overflow-hidden">
+        <CurvedLoop
+          marqueeText="组件库 中文动画 一比一复刻 "
+          className="text-2xl font-bold"
+          speed={2}
+          direction="left"
+          curveAmount={100}
+          interactive={false}
+        />
+      </div>
     ),
 
   'fuzzy-text': () =>
@@ -103,8 +105,11 @@ export const TEXT_ANIMATION_DEMOS = {
 
   'text-cursor': () =>
     demoWrap(
-      <div className="h-16 w-full text-2xl font-bold text-white">
-        <TextCursor text="在文字上移动鼠标试试" spacing={0.1} followMouseDirection maxPoints={5} />
+      <div className="relative h-40 w-full cursor-crosshair overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
+        <p className="pointer-events-none absolute inset-0 flex items-center justify-center text-2xl font-bold text-white/80">
+          在文字上移动鼠标，试试光标拖尾
+        </p>
+        <TextCursor text="✨" spacing={40} followMouseDirection maxPoints={12} />
       </div>
     ),
 
@@ -130,7 +135,7 @@ export const TEXT_ANIMATION_DEMOS = {
 
   'ascii-text': () =>
     demoWrap(
-      <div className="w-full">
+      <div className="relative h-[300px] w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
         <ASCIIText text="HI" textColor="#ffffff" />
       </div>
     ),
