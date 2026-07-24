@@ -1,23 +1,20 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Works from './components/Works'
-import Skills from './components/Skills'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import Home from './components/Home';
+import ComponentPage from './components/ComponentPage';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-ink text-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Works />
-        <Skills />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
-  )
+    <HashRouter>
+      <div className="min-h-screen bg-ink text-white">
+        <Sidebar />
+        <main className="ml-64">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/c/:slug" element={<ComponentPage />} />
+          </Routes>
+        </main>
+      </div>
+    </HashRouter>
+  );
 }
