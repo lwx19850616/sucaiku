@@ -11,6 +11,14 @@ export default {
         sans: ['"PingFang SC"', '"Microsoft YaHei"', 'system-ui', 'sans-serif'],
       },
       keyframes: {
+        'star-movement-bottom': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(-100%, 0%)', opacity: '0' },
+        },
+        'star-movement-top': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(100%, 0%)', opacity: '0' },
+        },
         glitch: {
           '0%': { 'clip-path': 'inset(20% 0 50% 0)' },
           '5%': { 'clip-path': 'inset(10% 0 60% 0)' },
@@ -36,6 +44,8 @@ export default {
         },
       },
       animation: {
+        'star-movement-bottom': 'star-movement-bottom linear infinite alternate',
+        'star-movement-top': 'star-movement-top linear infinite alternate',
         'glitch-after': 'glitch var(--after-duration) infinite linear alternate-reverse',
         'glitch-before': 'glitch var(--before-duration) infinite linear alternate-reverse',
       },

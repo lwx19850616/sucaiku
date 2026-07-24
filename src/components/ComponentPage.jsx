@@ -1,7 +1,14 @@
 import { useParams, Link } from 'react-router-dom';
 import { COMPONENTS_BY_SLUG } from '../data/components';
 import { TEXT_ANIMATION_DEMOS } from '../demos/TextAnimations';
+import { ANIMATION_DEMOS } from '../demos/Animations';
 import ErrorBoundary from './ErrorBoundary';
+
+// 按分类分发对应的演示映射
+const DEMO_MAPS = {
+  'text-animations': TEXT_ANIMATION_DEMOS,
+  'animations': ANIMATION_DEMOS,
+};
 
 export default function ComponentPage() {
   const { slug } = useParams();
@@ -16,7 +23,7 @@ export default function ComponentPage() {
   }
 
   const isReady = info.status === 'ready';
-  const renderDemo = TEXT_ANIMATION_DEMOS[slug];
+  const renderDemo = (DEMO_MAPS[info.categoryKey] || {})[slug];
 
   return (
     <article className="mx-auto max-w-4xl px-6 py-12">
