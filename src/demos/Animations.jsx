@@ -80,7 +80,7 @@ const PRESETS = {
   MagicRings: { color: '#22d3ee', colorTwo: '#a855f7' },
   Antigravity: { color: '#22d3ee' },
   TargetCursor: { cursorColor: '#22d3ee' },
-  OrbitImages: { width: 300, height: 300, baseWidth: 1400, radiusX: 240, radiusY: 80, radius: 120, itemSize: 56 },
+  OrbitImages: { responsive: true, baseWidth: 1400, radiusX: 480, radiusY: 170, radius: 300, itemSize: 72 },
   LogoLoop: { speed: 20, direction: 'left', logoHeight: 36, gap: 40 },
   GlareHover: { background: '#0ea5e9', glareColor: '#ffffff' },
   MagnetLines: { lineColor: '#22d3ee' },
@@ -145,7 +145,7 @@ export const ANIMATION_DEMOS = {
   'orbit-images': () => (
     <InteractiveDemo knobs={kx('OrbitImages')} defaults={PD('OrbitImages')} render={(v) =>
       demoWrap(
-        <div className="flex h-[320px] w-full max-w-2xl items-center justify-center">
+        <div className="flex w-full max-w-xl items-center justify-center py-6">
           <OrbitImages images={ORBIT_IMGS} {...v} />
         </div>
       )} />
