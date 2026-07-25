@@ -5,6 +5,8 @@ import ComponentPage from './components/ComponentPage';
 import BackgroundStudio from './tools/BackgroundStudio';
 import ShapeMagic from './tools/ShapeMagic';
 import TextureLab from './tools/TextureLab';
+import PagesHero from './pages/PagesHero';
+import PagesLanding from './pages/PagesLanding';
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
             <Route path="/tools/background-studio" element={<BackgroundStudio />} />
             <Route path="/tools/shape-magic" element={<ShapeMagic />} />
             <Route path="/tools/texture-lab" element={<TextureLab />} />
+            <Route path="/pages/hero" element={<PagesHero />} />
+            <Route path="/pages/landing" element={<PagesLanding />} />
           </Routes>
         </main>
       </div>
