@@ -2069,6 +2069,15 @@ export const ANIM_KNOB_CONFIGS = {
       label: "速度",
       type: "text",
       default: "6s"
+    },
+    {
+      prop: "thickness",
+      label: "厚度",
+      type: "number",
+      default: 3,
+      min: 1,
+      max: 20,
+      step: 1
     }
   ],
   "StickerPeel": [
@@ -2657,7 +2666,8 @@ export const ANIM_DEFAULTS = {
   },
   "StarBorder": {
     "color": "white",
-    "speed": "6s"
+    "speed": "6s",
+    "thickness": 3
   },
   "StickerPeel": {
     "rotate": 30,

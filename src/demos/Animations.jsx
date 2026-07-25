@@ -39,7 +39,7 @@ import { ANIM_KNOB_CONFIGS, ANIM_DEFAULTS } from './animKnobConfigs';
 // 占位图片（与 React Bits 演示一致，使用 picsum 随机图）
 const P = (seed, w = 500, h = 320) => `https://picsum.photos/seed/${seed}/${w}/${h}`;
 
-const demoWrap = (node) => <div className="flex min-h-[140px] w-full items-center justify-center py-8">{node}</div>;
+const demoWrap = (node) => <div className="flex min-h-[200px] w-full items-center justify-center py-8">{node}</div>;
 
 const LOGOS = [
   { src: P('logo1', 120, 48), alt: '标志 1' },
@@ -96,7 +96,7 @@ const kx = (name) => ANIM_KNOB_CONFIGS[name] || [];
 
 // 全屏感容器（光标类 / canvas 类组件通用）
 const Frame = ({ children, label }) => (
-  <div className="relative h-64 w-full max-w-xl overflow-hidden rounded-xl border border-white/10 bg-black/30">
+  <div className="relative h-80 w-full max-w-xl overflow-hidden rounded-xl border border-white/10 bg-black/30">
     {children}
     {label && (
       <p className="pointer-events-none absolute inset-0 flex items-center justify-center text-sm text-white/40">

@@ -7,6 +7,7 @@ const EFFECTS = [
   { id: 'pixelate', label: '像素化', icon: '🎮' },
   { id: 'scanlines', label: '扫描线', icon: '📺' },
   { id: 'halftone', label: '半调', icon: '🔘' },
+  { id: 'ascii', label: 'ASCII 字符', icon: '🔤' },
   { id: 'glitch', label: '故障', icon: '💥' },
   { id: 'vignette', label: '暗角', icon: '🌑' },
 ];
@@ -16,17 +17,22 @@ const rand = (seed) => {
   return () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
 };
 
+const STORAGE_KEY = 'sucaiku-texture-presets';
+
 export default function TextureLab() {
   const canvasRef = useRef(null);
+  const fileInputRef = useRef(null);
+  const origImageRef = useRef(null);
+
   const [image, setImage] = useState(null);
   const [imageSrc, setImageSrc] = useState(null);
   const [effect, setEffect] = useState('noise');
   const [intensity, setIntensity] = useState(50);
   const [scale, setScale] = useState(100);
   const [seed, setSeed] = useState(42);
-  const [processing, setProcessing] = useState(false);
-  const fileInputRef = useRef(null);
-  const origImageRef = useRef(null);
+  const [presets, setPresets] = useState(() => {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; }
+  });
 
   const loadImage = (src) => {
     const img = new Image();
@@ -58,10 +64,10 @@ export default function TextureLab() {
     canvas.width = w;
     canvas.height = h;
 
-    // 绘制原图
     ctx.drawImage(img, 0, 0, w, h);
 
     if (effect === 'none') return;
+    if (effect === 'ascii') { renderAscii(ctx, w, h, intensity); return; }
 
     const imageData = ctx.getImageData(0, 0, w, h);
     const data = imageData.data;
@@ -191,8 +197,38 @@ export default function TextureLab() {
   }, [effect, intensity, scale, seed]);
 
   useEffect(() => {
-    if (image) { setProcessing(true); process(); setProcessing(false); }
+    if (image) process();
   }, [image, process]);
+
+  const renderAscii = (ctx, w, h, intensity) => {
+    const t = intensity / 100;
+    const chars = '@%#*+=-:. ';
+    const cell = Math.max(4, Math.floor(8 * t) + 3);
+    const cols = Math.floor(w / cell);
+    const rows = Math.floor(h / cell);
+    const imageData = ctx.getImageData(0, 0, w, h);
+    const data = imageData.data;
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = '#e5e7eb';
+    ctx.font = `${cell}px monospace`;
+    ctx.textBaseline = 'top';
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const x0 = c * cell, y0 = r * cell;
+        let sum = 0, cnt = 0;
+        for (let yy = 0; yy < cell && y0 + yy < h; yy += 2) {
+          for (let xx = 0; xx < cell && x0 + xx < w; xx += 2) {
+            const idx = ((y0 + yy) * w + (x0 + xx)) * 4;
+            sum += (data[idx] + data[idx + 1] + data[idx + 2]) / 3; cnt++;
+          }
+        }
+        const lum = cnt ? sum / cnt : 0;
+        const ch = chars[Math.floor((1 - lum / 255) * (chars.length - 1))];
+        ctx.fillText(ch, x0, y0);
+      }
+    }
+  };
 
   const exportPNG = () => {
     const canvas = canvasRef.current;
@@ -202,35 +238,73 @@ export default function TextureLab() {
     link.click();
   };
 
+  const savePreset = () => {
+    const name = window.prompt('预设名称', `${EFFECTS.find((e) => e.id === effect)?.label || effect} ${intensity}%`);
+    if (!name) return;
+    const next = [...presets, { name, effect, intensity, scale, seed }];
+    setPresets(next);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+  };
+
+  const applyPreset = (p) => {
+    setEffect(p.effect); setIntensity(p.intensity); setScale(p.scale); setSeed(p.seed);
+  };
+
+  const deletePreset = (i) => {
+    const next = presets.filter((_, idx) => idx !== i);
+    setPresets(next);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+  };
+
   return (
     <div className="flex h-full">
-      {/* 左侧：效果选择 */}
-      <div className="w-44 shrink-0 overflow-y-auto border-r border-white/10 bg-black/20 py-4">
-        <div className="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-white/40">效果</div>
-        <div className="space-y-1 px-2">
-          {EFFECTS.map((e) => (
-            <button
-              key={e.id}
-              onClick={() => setEffect(e.id)}
-              className={`w-full rounded-lg px-3 py-2 text-left text-sm transition-colors ${
-                effect === e.id ? 'bg-cyan-400/20 text-cyan-300' : 'text-white/70 hover:bg-white/10'
-              }`}
-            >
-              {e.icon} {e.label}
-            </button>
-          ))}
-        </div>
-      </div>
+      {/* 左侧：设置 */}
+      <aside className="w-60 shrink-0 overflow-y-auto border-r border-white/10 bg-black/20 py-4 text-sm">
+        <Section title="效果">
+          <div className="space-y-1 px-2">
+            {EFFECTS.map((e) => (
+              <button
+                key={e.id}
+                onClick={() => setEffect(e.id)}
+                className={`w-full rounded-lg px-3 py-2 text-left transition-colors ${effect === e.id ? 'bg-cyan-400/20 text-cyan-300' : 'text-white/70 hover:bg-white/10'}`}
+              >
+                {e.icon} {e.label}
+              </button>
+            ))}
+          </div>
+        </Section>
+
+        <Section title="参数">
+          <div className="space-y-4 px-3">
+            <Range label="强度" value={intensity} min={0} max={100} suffix="%" onChange={setIntensity} />
+            <Range label="缩放" value={scale} min={10} max={100} suffix="%" onChange={setScale} />
+            <Range label="随机种子" value={seed} min={1} max={100} onChange={setSeed} />
+          </div>
+        </Section>
+
+        <Section title="预设">
+          <div className="space-y-2 px-2">
+            <button onClick={savePreset} className="w-full rounded-lg bg-cyan-500 px-3 py-1.5 text-sm font-semibold text-black hover:bg-cyan-400">＋ 保存当前为预设</button>
+            {presets.length === 0 && <p className="px-1 text-xs text-white/30">暂无预设</p>}
+            {presets.map((p, i) => (
+              <div key={i} className="flex items-center gap-1 rounded-lg bg-white/5 px-2 py-1">
+                <button onClick={() => applyPreset(p)} className="flex-1 truncate text-left text-xs text-white/80 hover:text-cyan-300">{p.name}</button>
+                <button onClick={() => deletePreset(i)} className="text-xs text-red-300 hover:text-red-200">✕</button>
+              </div>
+            ))}
+          </div>
+        </Section>
+      </aside>
 
       {/* 中间：画布 */}
-      <div className="flex flex-1 flex-col">
+      <main className="flex flex-1 flex-col">
         <div className="flex flex-1 items-center justify-center overflow-auto bg-black p-4">
           {image ? (
             <canvas ref={canvasRef} className="max-w-full rounded-lg border border-white/10" style={{ imageRendering: effect === 'pixelate' ? 'pixelated' : 'auto' }} />
           ) : (
             <div className="text-center">
               <div className="mb-4 text-6xl">🧪</div>
-              <p className="mb-4 text-white/60">上传图片或加载示例图</p>
+              <p className="mb-4 text-white/60">上传图片或加载示例图，然后套用特效</p>
               <div className="flex justify-center gap-3">
                 <button onClick={() => fileInputRef.current?.click()} className="rounded-lg bg-cyan-500 px-4 py-2 text-sm font-semibold text-black hover:bg-cyan-400">📁 上传图片</button>
                 <button onClick={loadSample} className="rounded-lg bg-white/10 px-4 py-2 text-sm text-white/80 hover:bg-white/20">🖼️ 加载示例</button>
@@ -241,35 +315,32 @@ export default function TextureLab() {
         </div>
 
         {image && (
-          <div className="flex items-center gap-2 border-t border-white/10 bg-black/30 px-4 py-2">
+          <div className="flex flex-wrap items-center gap-2 border-t border-white/10 bg-black/30 px-4 py-2">
             <button onClick={() => fileInputRef.current?.click()} className="rounded-lg bg-white/10 px-3 py-1.5 text-sm text-white/80 hover:bg-white/20">换图</button>
             <button onClick={loadSample} className="rounded-lg bg-white/10 px-3 py-1.5 text-sm text-white/80 hover:bg-white/20">🎲 换示例</button>
             <div className="mx-2 h-5 w-px bg-white/20" />
             <button onClick={exportPNG} className="rounded-lg bg-cyan-500 px-4 py-1.5 text-sm font-semibold text-black hover:bg-cyan-400">📷 导出 PNG</button>
           </div>
         )}
-      </div>
+      </main>
+    </div>
+  );
+}
 
-      {/* 右侧：参数 */}
-      {image && (
-        <div className="w-52 shrink-0 border-l border-white/10 bg-black/20 py-4">
-          <div className="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-white/40">参数</div>
-          <div className="space-y-4 px-3">
-            <div>
-              <div className="mb-1 flex justify-between"><span className="text-sm text-white/80">强度</span><span className="text-xs text-white/50">{intensity}%</span></div>
-              <input type="range" min={0} max={100} value={intensity} onChange={(e) => setIntensity(+e.target.value)} className="w-full accent-cyan-400" />
-            </div>
-            <div>
-              <div className="mb-1 flex justify-between"><span className="text-sm text-white/80">缩放</span><span className="text-xs text-white/50">{scale}%</span></div>
-              <input type="range" min={10} max={100} value={scale} onChange={(e) => setScale(+e.target.value)} className="w-full accent-cyan-400" />
-            </div>
-            <div>
-              <div className="mb-1 flex justify-between"><span className="text-sm text-white/80">随机种子</span><span className="text-xs text-white/50">{seed}</span></div>
-              <input type="range" min={1} max={100} value={seed} onChange={(e) => setSeed(+e.target.value)} className="w-full accent-cyan-400" />
-            </div>
-          </div>
-        </div>
-      )}
+function Section({ title, children }) {
+  return (
+    <div className="mb-3">
+      <div className="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-white/40">{title}</div>
+      {children}
+    </div>
+  );
+}
+
+function Range({ label, value, min, max, step = 1, suffix = '', onChange }) {
+  return (
+    <div>
+      <div className="mb-1 flex justify-between text-xs text-white/80"><span>{label}</span><span className="text-white/50">{value}{suffix}</span></div>
+      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(+e.target.value)} className="w-full accent-cyan-400" />
     </div>
   );
 }

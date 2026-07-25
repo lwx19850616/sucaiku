@@ -46,7 +46,7 @@ import InfiniteMenu from '../bits/Components/InfiniteMenu/InfiniteMenu';
 
 // === 工具函数 ===
 const P = (seed, w = 480, h = 320) => `https://picsum.photos/seed/${seed}/${w}/${h}`;
-const demoWrap = (node) => <div className="flex min-h-[140px] w-full items-center justify-center py-8">{node}</div>;
+const demoWrap = (node) => <div className="flex min-h-[200px] w-full items-center justify-center py-8">{node}</div>;
 const fullWrap = (node) => <div className="flex min-h-[280px] w-full items-center justify-center py-4">{node}</div>;
 
 const IMAGES5 = [P('bc1', 200, 200), P('bc2', 200, 200), P('bc3', 200, 200), P('bc4', 200, 200), P('bc5', 200, 200)];

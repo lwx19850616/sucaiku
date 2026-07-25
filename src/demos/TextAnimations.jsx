@@ -23,7 +23,7 @@ import ScrollVelocity from '../bits/TextAnimations/ScrollVelocity';
 import VariableProximity from '../bits/TextAnimations/VariableProximity';
 import CountUp from '../bits/TextAnimations/CountUp';
 
-const demoWrap = (node) => <div className="flex min-h-[120px] items-center justify-center py-8">{node}</div>;
+const demoWrap = (node) => <div className="flex min-h-[160px] items-center justify-center py-8">{node}</div>;
 
 export const TEXT_ANIMATION_DEMOS = {
   'blur-text': () =>

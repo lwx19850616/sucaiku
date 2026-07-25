@@ -28,7 +28,7 @@ export default function ComponentPage() {
   const renderDemo = (DEMO_MAPS[info.categoryKey] || {})[slug];
 
   return (
-    <article className="mx-auto max-w-4xl px-6 py-12">
+    <article className="mx-auto max-w-6xl px-6 py-12">
       {/* 面包屑 */}
       <div className="mb-2 text-xs text-white/40">
         <Link to="/" className="hover:text-white">首页</Link>
@@ -46,7 +46,7 @@ export default function ComponentPage() {
       </p>
 
       {/* 演示区 */}
-      <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+      <div className="mt-8 min-h-[420px] rounded-2xl border border-white/10 bg-white/[0.03] p-8">
         {isReady && renderDemo ? (
           <ErrorBoundary>{renderDemo()}</ErrorBoundary>
         ) : (
