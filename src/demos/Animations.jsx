@@ -24,7 +24,6 @@ import Strands from '../bits/Animations/Strands';
 import StickerPeel from '../bits/Animations/StickerPeel';
 import PixelTrail from '../bits/Animations/PixelTrail';
 import Cubes from '../bits/Animations/Cubes';
-import MetallicPaint from '../bits/Animations/MetallicPaint';
 import Noise from '../bits/Animations/Noise';
 import ShapeBlur from '../bits/Animations/ShapeBlur';
 import Crosshair from '../bits/Animations/Crosshair';
@@ -89,7 +88,7 @@ const PRESETS = {
   ImageTrail: { variant: 1 },
   SplashCursor: { COLOR: '#ff0000' },
   MetaBalls: { color: '#22d3ee', cursorBallColor: '#a855f7', ballCount: 8 },
-  StarBorder: { color: '#22d3ee' },
+  StarBorder: { color: '#ffffff' },
 };
 
 const PD = (name, extra = {}) => ({ ...ANIM_DEFAULTS[name], ...(PRESETS[name] || {}), ...extra });
@@ -279,11 +278,6 @@ export const ANIMATION_DEMOS = {
       demoWrap(<Frame><Cubes {...v} /></Frame>)} />
   ),
 
-  'metallic-paint': () => (
-    <InteractiveDemo knobs={kx('MetallicPaint')} defaults={PD('MetallicPaint')} render={(v) =>
-      demoWrap(<Frame><MetallicPaint {...v} /></Frame>)} />
-  ),
-
   'noise': () => (
     <InteractiveDemo knobs={kx('Noise')} defaults={PD('Noise')} render={(v) =>
       demoWrap(<Frame><Noise {...v} /></Frame>)} />
@@ -341,8 +335,8 @@ export const ANIMATION_DEMOS = {
   'star-border': () => (
     <InteractiveDemo knobs={kx('StarBorder')} defaults={PD('StarBorder')} render={(v) =>
       demoWrap(
-        <StarBorder {...v} className="rounded-xl">
-          <div className="px-8 py-5 text-lg font-bold text-white">星光边框</div>
+        <StarBorder {...v} as="div" className="rounded-[20px]">
+          <span className="text-base font-semibold text-white">星光边框</span>
         </StarBorder>
       )} />
   ),

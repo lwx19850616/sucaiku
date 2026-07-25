@@ -59,7 +59,6 @@ export const CATEGORIES = [
       { slug: 'sticker-peel', en: 'Sticker Peel', zh: '贴纸撕开', status: 'ready' },
       { slug: 'pixel-trail', en: 'Pixel Trail', zh: '像素拖尾', status: 'ready' },
       { slug: 'cubes', en: 'Cubes', zh: '立方体', status: 'ready' },
-      { slug: 'metallic-paint', en: 'Metallic Paint', zh: '金属漆', status: 'ready' },
       { slug: 'noise', en: 'Noise', zh: '噪点', status: 'ready' },
       { slug: 'shape-blur', en: 'Shape Blur', zh: '形状模糊', status: 'ready' },
       { slug: 'crosshair', en: 'Crosshair', zh: '十字准星', status: 'ready' },
