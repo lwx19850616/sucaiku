@@ -44,6 +44,8 @@ function KnobControl({ knob, value, onChange }) {
       return <SelectKnob label={label} value={value} onChange={onChange} options={knob.options} />;
     case 'color':
       return <ColorKnob label={label} value={value} onChange={onChange} />;
+    case 'text':
+      return <TextKnob label={label} value={value} onChange={onChange} />;
     default:
       return null;
   }
@@ -115,6 +117,20 @@ function ColorKnob({ label, value, onChange }) {
         />
         <span className="text-[10px] font-mono text-white/40">{value}</span>
       </div>
+    </div>
+  );
+}
+
+function TextKnob({ label, value, onChange }) {
+  return (
+    <div className="flex flex-col gap-1 min-w-[110px]">
+      <span className="text-[11px] text-white/50">{label}</span>
+      <input
+        type="text"
+        value={value ?? ''}
+        onChange={(e) => onChange(e.target.value)}
+        className="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-xs text-white/80 outline-none focus:border-cyan-400/50"
+      />
     </div>
   );
 }
