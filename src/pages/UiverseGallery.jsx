@@ -5,13 +5,14 @@ const BASE = import.meta.env.BASE_URL; // '/sucaiku/'
 const PER_PAGE = 35;
 
 // uiverse types (ordered by typical popularity); only those present in manifest are shown
+// 注：form / notification 在源站可抓取 feed 中无数据，已从列表中移除
 const TYPE_ORDER = [
   'button', 'card', 'loader', 'switch', 'checkbox',
-  'input', 'form', 'radio', 'pattern', 'tooltip', 'notification',
+  'input', 'radio', 'pattern', 'tooltip',
 ];
 const TYPE_ZH = {
   button: '按钮', card: '卡片', loader: '加载', switch: '切换', checkbox: '复选框',
-  input: '输入框', form: '表单', radio: '单选', pattern: '图案', tooltip: '提示', notification: '通知',
+  input: '输入框', radio: '单选', pattern: '图案', tooltip: '提示',
 };
 
 function stageBg(comp) {
@@ -19,17 +20,29 @@ function stageBg(comp) {
   return comp.theme === 'dark' ? '#0b0b0f' : '#f4f4f5';
 }
 
-function buildDoc(comp) {
+function typeLabel(x) {
+  return TYPE_ZH[x] || x;
+}
+
+function displayName(c) {
+  return c.title || c.friendlyId;
+}
+
+// centered=true 用于模态大图预览（组件居中展示）；false 用于网格缩略图（顶对齐、去强制 padding/居中，1:1 还原）
+function buildDoc(comp, centered = false) {
   const bg = stageBg(comp);
+  const stage = centered
+    ? `min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px`
+    : `padding:18px`;
   return `<!doctype html><html><head><meta charset="utf-8">` +
     `<style>${comp.css || ''}</style>` +
-    `<style>html,body{margin:0;padding:0}#uv-stage{min-height:100vh;display:flex;align-items:center;justify-content:center;background:${bg};padding:24px;box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;overflow:hidden}#uv-stage>*{max-width:100%}</style>` +
+    `<style>html,body{margin:0;padding:0}#uv-stage{${stage};background:${bg};box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;overflow:hidden}#uv-stage>*{max-width:100%}</style>` +
     `</head><body><div id="uv-stage">${comp.html || ''}</div></body></html>`;
 }
 
-function Preview({ comp, className, style }) {
+function Preview({ comp, className, style, centered = false }) {
   const [doc, setDoc] = useState('');
-  useEffect(() => { setDoc(buildDoc(comp)); }, [comp]);
+  useEffect(() => { setDoc(buildDoc(comp, centered)); }, [comp, centered]);
   return (
     <iframe
       title={comp.friendlyId}
@@ -43,15 +56,18 @@ function Preview({ comp, className, style }) {
 
 function CodeBlock({ label, code }) {
   const [copied, setCopied] = useState(false);
+  const timer = useRef(null);
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(code);
       setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
+      if (timer.current) clearTimeout(timer.current);
+      timer.current = setTimeout(() => setCopied(false), 1500);
     } catch {
       setCopied(false);
     }
   };
+  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
   return (
     <div className="flex min-h-0 flex-1 flex-col rounded-xl border border-white/10 bg-black/40">
       <div className="flex items-center justify-between border-b border-white/10 px-4 py-2">
@@ -85,8 +101,8 @@ function Modal({ comp, onClose }) {
       >
         <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
           <div>
-            <div className="text-base font-semibold text-white">{comp.title || comp.friendlyId}</div>
-            <div className="text-xs text-white/40">by {comp.username} · {TYPE_ZH[comp.type] || comp.type}</div>
+            <div className="text-base font-semibold text-white">{displayName(comp)}</div>
+            <div className="text-xs text-white/40">by {comp.username} · {typeLabel(comp.type)}</div>
           </div>
           <button onClick={onClose} className="rounded-lg p-2 text-white/60 transition-colors hover:bg-white/10 hover:text-white">
             <X size={18} />
@@ -95,7 +111,7 @@ function Modal({ comp, onClose }) {
 
         <div className="grid min-h-0 flex-1 grid-cols-1 md:grid-cols-2">
           <div className="min-h-[260px] border-b border-white/10 md:border-b-0 md:border-r">
-            <Preview comp={comp} className="h-full w-full" />
+            <Preview comp={comp} className="h-full w-full" centered />
           </div>
           <div className="flex min-h-0 flex-col gap-3 p-4">
             <div className="flex gap-2">
@@ -207,7 +223,7 @@ export default function UiverseGallery() {
                   active === t ? 'bg-violet-400/20 text-violet-200' : 'bg-white/5 text-white/60 hover:bg-white/10 hover:text-white'
                 }`}
               >
-                <span className="font-medium">{TYPE_ZH[t] || t}</span>
+                <span className="font-medium">{typeLabel(t)}</span>
                 <span className={`rounded-full px-1.5 text-[11px] ${active === t ? 'bg-violet-400/30' : 'bg-white/10'} text-white/70`}>
                   {manifest?.[t] ?? 0}
                 </span>
@@ -231,15 +247,15 @@ export default function UiverseGallery() {
                 onClick={() => setSelected(c)}
                 className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] text-left transition-all hover:border-violet-400/40 hover:bg-white/[0.06]"
               >
-                <div className="h-44 w-full overflow-hidden bg-zinc-900">
+                <div className="h-48 w-full overflow-hidden bg-zinc-900">
                   <Preview comp={c} className="h-full w-full transition-transform duration-300 group-hover:scale-[1.03]" />
                 </div>
                 <div className="flex items-center justify-between gap-2 px-3 py-2.5">
                   <div className="min-w-0">
-                    <div className="truncate text-sm font-medium text-white/90">{c.title || c.friendlyId}</div>
+                    <div className="truncate text-sm font-medium text-white/90">{displayName(c)}</div>
                     <div className="truncate text-[11px] text-white/40">@{c.username}</div>
                   </div>
-                  <span className="shrink-0 rounded bg-white/10 px-1.5 py-0.5 text-[10px] text-white/50">{TYPE_ZH[c.type] || c.type}</span>
+                  <span className="shrink-0 rounded bg-white/10 px-1.5 py-0.5 text-[10px] text-white/50">{typeLabel(c.type)}</span>
                 </div>
               </button>
             ))}
