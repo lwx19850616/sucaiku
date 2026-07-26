@@ -1,0 +1,4410 @@
+{
+  "Aurora": {
+    "defaults": {
+      "colorStops": [
+        "#5227FF",
+        "#7cff67",
+        "#5227FF"
+      ],
+      "amplitude": 1.0,
+      "blend": 0.5
+    },
+    "controls": {
+      "colorStops": {
+        "type": "colors",
+        "label": "Color Stops",
+        "default": [
+          "#5227FF",
+          "#7cff67",
+          "#5227FF"
+        ],
+        "max": 8
+      },
+      "amplitude": {
+        "type": "range",
+        "label": "振幅",
+        "default": 1.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "blend": {
+        "type": "range",
+        "label": "混合",
+        "default": 0.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      }
+    }
+  },
+  "Balatro": {
+    "defaults": {
+      "spinRotation": -2.0,
+      "spinSpeed": 7.0,
+      "offset": [
+        0.0,
+        0.0
+      ],
+      "color1": "#DE443B",
+      "color2": "#006BB4",
+      "color3": "#162325",
+      "contrast": 3.5,
+      "lighting": 0.4,
+      "spinAmount": 0.25,
+      "pixelFilter": 745.0,
+      "spinEase": 1.0,
+      "isRotate": false,
+      "mouseInteraction": true
+    },
+    "controls": {
+      "spinRotation": {
+        "type": "range",
+        "label": "旋转角度",
+        "default": -2.0,
+        "min": -180,
+        "max": 180,
+        "step": 1
+      },
+      "spinSpeed": {
+        "type": "range",
+        "label": "旋转速度",
+        "default": 7.0,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "offset": {
+        "type": "text",
+        "label": "Offset",
+        "default": [
+          0.0,
+          0.0
+        ]
+      },
+      "color1": {
+        "type": "color",
+        "label": "Color1",
+        "default": "#DE443B"
+      },
+      "color2": {
+        "type": "color",
+        "label": "Color2",
+        "default": "#006BB4"
+      },
+      "color3": {
+        "type": "color",
+        "label": "Color3",
+        "default": "#162325"
+      },
+      "contrast": {
+        "type": "range",
+        "label": "Contrast",
+        "default": 3.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "lighting": {
+        "type": "range",
+        "label": "Lighting",
+        "default": 0.4,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "spinAmount": {
+        "type": "range",
+        "label": "Spin Amount",
+        "default": 0.25,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "pixelFilter": {
+        "type": "range",
+        "label": "Pixel Filter",
+        "default": 745.0,
+        "min": 0,
+        "max": 1490.0,
+        "step": 0.1
+      },
+      "spinEase": {
+        "type": "range",
+        "label": "Spin Ease",
+        "default": 1.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "isRotate": {
+        "type": "boolean",
+        "label": "Is Rotate",
+        "default": false
+      },
+      "mouseInteraction": {
+        "type": "boolean",
+        "label": "鼠标交互",
+        "default": true
+      }
+    }
+  },
+  "Ballpit": {
+    "defaults": {
+      "className": "",
+      "followCursor": true
+    },
+    "controls": {
+      "className": {
+        "type": "text",
+        "label": "Class Name",
+        "default": ""
+      },
+      "followCursor": {
+        "type": "boolean",
+        "label": "Follow Cursor",
+        "default": true
+      }
+    }
+  },
+  "Beams": {
+    "defaults": {
+      "beamWidth": 2,
+      "beamHeight": 15,
+      "beamNumber": 12,
+      "lightColor": "#ffffff",
+      "speed": 2,
+      "noiseIntensity": 1.75,
+      "scale": 0.2,
+      "rotation": 0
+    },
+    "controls": {
+      "beamWidth": {
+        "type": "range",
+        "label": "Beam Width",
+        "default": 2,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "beamHeight": {
+        "type": "range",
+        "label": "Beam Height",
+        "default": 15,
+        "min": 0,
+        "max": 30,
+        "step": 0.1
+      },
+      "beamNumber": {
+        "type": "range",
+        "label": "Beam Number",
+        "default": 12,
+        "min": 0,
+        "max": 24,
+        "step": 0.1
+      },
+      "lightColor": {
+        "type": "color",
+        "label": "Light Color",
+        "default": "#ffffff"
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 2,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "noiseIntensity": {
+        "type": "range",
+        "label": "Noise Intensity",
+        "default": 1.75,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "scale": {
+        "type": "range",
+        "label": "缩放",
+        "default": 0.2,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "rotation": {
+        "type": "range",
+        "label": "旋转",
+        "default": 0,
+        "min": -180,
+        "max": 180,
+        "step": 1
+      }
+    }
+  },
+  "ColorBends": {
+    "defaults": {
+      "rotation": 90,
+      "speed": 0.2,
+      "colors": [],
+      "transparent": true,
+      "autoRotate": 0,
+      "scale": 1,
+      "frequency": 1,
+      "warpStrength": 1,
+      "mouseInfluence": 1,
+      "parallax": 0.5,
+      "noise": 0.15,
+      "iterations": 1,
+      "intensity": 1.5,
+      "bandWidth": 6
+    },
+    "controls": {
+      "rotation": {
+        "type": "range",
+        "label": "旋转",
+        "default": 90,
+        "min": -180,
+        "max": 180,
+        "step": 1
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 0.2,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "colors": {
+        "type": "colors",
+        "label": "颜色组",
+        "default": [],
+        "max": 8
+      },
+      "transparent": {
+        "type": "boolean",
+        "label": "Transparent",
+        "default": true
+      },
+      "autoRotate": {
+        "type": "range",
+        "label": "Auto Rotate",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "scale": {
+        "type": "range",
+        "label": "缩放",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "frequency": {
+        "type": "range",
+        "label": "Frequency",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "warpStrength": {
+        "type": "range",
+        "label": "Warp Strength",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "mouseInfluence": {
+        "type": "range",
+        "label": "Mouse Influence",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "parallax": {
+        "type": "range",
+        "label": "Parallax",
+        "default": 0.5,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "noise": {
+        "type": "range",
+        "label": "噪点",
+        "default": 0.15,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "iterations": {
+        "type": "range",
+        "label": "迭代次数",
+        "default": 1,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "intensity": {
+        "type": "range",
+        "label": "强度",
+        "default": 1.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "bandWidth": {
+        "type": "range",
+        "label": "Band Width",
+        "default": 6,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      }
+    }
+  },
+  "DarkVeil": {
+    "defaults": {
+      "hueShift": 0,
+      "noiseIntensity": 0,
+      "scanlineIntensity": 0,
+      "speed": 0.5,
+      "scanlineFrequency": 0,
+      "warpAmount": 0,
+      "resolutionScale": 1
+    },
+    "controls": {
+      "hueShift": {
+        "type": "range",
+        "label": "Hue Shift",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "noiseIntensity": {
+        "type": "range",
+        "label": "Noise Intensity",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "scanlineIntensity": {
+        "type": "range",
+        "label": "Scanline Intensity",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 0.5,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "scanlineFrequency": {
+        "type": "range",
+        "label": "Scanline Frequency",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "warpAmount": {
+        "type": "range",
+        "label": "Warp Amount",
+        "default": 0,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "resolutionScale": {
+        "type": "range",
+        "label": "Resolution Scale",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      }
+    }
+  },
+  "Dither": {
+    "defaults": {
+      "waveSpeed": 0.05,
+      "waveFrequency": 3,
+      "waveAmplitude": 0.3,
+      "waveColor": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "colorNum": 4,
+      "pixelSize": 2,
+      "disableAnimation": false,
+      "enableMouseInteraction": true,
+      "mouseRadius": 1
+    },
+    "controls": {
+      "waveSpeed": {
+        "type": "range",
+        "label": "Wave Speed",
+        "default": 0.05,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "waveFrequency": {
+        "type": "range",
+        "label": "Wave Frequency",
+        "default": 3,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "waveAmplitude": {
+        "type": "range",
+        "label": "Wave Amplitude",
+        "default": 0.3,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "waveColor": {
+        "type": "text",
+        "label": "Wave Color",
+        "default": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "colorNum": {
+        "type": "range",
+        "label": "Color Num",
+        "default": 4,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "pixelSize": {
+        "type": "range",
+        "label": "Pixel Size",
+        "default": 2,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "disableAnimation": {
+        "type": "boolean",
+        "label": "Disable Animation",
+        "default": false
+      },
+      "enableMouseInteraction": {
+        "type": "boolean",
+        "label": "Enable Mouse Interaction",
+        "default": true
+      },
+      "mouseRadius": {
+        "type": "range",
+        "label": "鼠标半径",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      }
+    }
+  },
+  "DotField": {
+    "defaults": {
+      "dotRadius": 1.5,
+      "dotSpacing": 14,
+      "cursorRadius": 500,
+      "cursorForce": 0.1,
+      "bulgeOnly": true,
+      "bulgeStrength": 67,
+      "glowRadius": 160,
+      "sparkle": false,
+      "waveAmplitude": 0,
+      "gradientFrom": "rgba(168, 85, 247, 0.35)",
+      "gradientTo": "rgba(180, 151, 207, 0.25)",
+      "glowColor": "#120F17"
+    },
+    "controls": {
+      "dotRadius": {
+        "type": "range",
+        "label": "Dot Radius",
+        "default": 1.5,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "dotSpacing": {
+        "type": "range",
+        "label": "点间距",
+        "default": 14,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "cursorRadius": {
+        "type": "range",
+        "label": "Cursor Radius",
+        "default": 500,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "cursorForce": {
+        "type": "range",
+        "label": "Cursor Force",
+        "default": 0.1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "bulgeOnly": {
+        "type": "boolean",
+        "label": "Bulge Only",
+        "default": true
+      },
+      "bulgeStrength": {
+        "type": "range",
+        "label": "Bulge Strength",
+        "default": 67,
+        "min": 0,
+        "max": 134,
+        "step": 0.1
+      },
+      "glowRadius": {
+        "type": "range",
+        "label": "Glow Radius",
+        "default": 160,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "sparkle": {
+        "type": "boolean",
+        "label": "Sparkle",
+        "default": false
+      },
+      "waveAmplitude": {
+        "type": "range",
+        "label": "Wave Amplitude",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "gradientFrom": {
+        "type": "text",
+        "label": "Gradient From",
+        "default": "rgba(168, 85, 247, 0.35)"
+      },
+      "gradientTo": {
+        "type": "text",
+        "label": "Gradient To",
+        "default": "rgba(180, 151, 207, 0.25)"
+      },
+      "glowColor": {
+        "type": "color",
+        "label": "Glow Color",
+        "default": "#120F17"
+      }
+    }
+  },
+  "DotGrid": {
+    "defaults": {
+      "dotSize": 16,
+      "gap": 32,
+      "baseColor": "#5227FF",
+      "activeColor": "#5227FF",
+      "proximity": 150,
+      "speedTrigger": 100,
+      "shockRadius": 250,
+      "shockStrength": 5,
+      "maxSpeed": 5000,
+      "resistance": 750,
+      "returnDuration": 1.5,
+      "className": ""
+    },
+    "controls": {
+      "dotSize": {
+        "type": "range",
+        "label": "点大小",
+        "default": 16,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "gap": {
+        "type": "range",
+        "label": "Gap",
+        "default": 32,
+        "min": 0,
+        "max": 64,
+        "step": 0.1
+      },
+      "baseColor": {
+        "type": "color",
+        "label": "基础颜色",
+        "default": "#5227FF"
+      },
+      "activeColor": {
+        "type": "color",
+        "label": "Active Color",
+        "default": "#5227FF"
+      },
+      "proximity": {
+        "type": "range",
+        "label": "Proximity",
+        "default": 150,
+        "min": 0,
+        "max": 300,
+        "step": 0.1
+      },
+      "speedTrigger": {
+        "type": "range",
+        "label": "Speed Trigger",
+        "default": 100,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "shockRadius": {
+        "type": "range",
+        "label": "Shock Radius",
+        "default": 250,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "shockStrength": {
+        "type": "range",
+        "label": "Shock Strength",
+        "default": 5,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "maxSpeed": {
+        "type": "range",
+        "label": "Max Speed",
+        "default": 5000,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "resistance": {
+        "type": "range",
+        "label": "Resistance",
+        "default": 750,
+        "min": 0,
+        "max": 1500,
+        "step": 0.1
+      },
+      "returnDuration": {
+        "type": "range",
+        "label": "Return Duration",
+        "default": 1.5,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "className": {
+        "type": "text",
+        "label": "Class Name",
+        "default": ""
+      }
+    }
+  },
+  "EvilEye": {
+    "defaults": {
+      "eyeColor": "#FF6F37",
+      "intensity": 1.5,
+      "pupilSize": 0.6,
+      "irisWidth": 0.25,
+      "glowIntensity": 0.35,
+      "scale": 0.8,
+      "noiseScale": 1.0,
+      "pupilFollow": 1.0,
+      "flameSpeed": 1.0,
+      "backgroundColor": "#000000"
+    },
+    "controls": {
+      "eyeColor": {
+        "type": "color",
+        "label": "Eye Color",
+        "default": "#FF6F37"
+      },
+      "intensity": {
+        "type": "range",
+        "label": "强度",
+        "default": 1.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "pupilSize": {
+        "type": "range",
+        "label": "Pupil Size",
+        "default": 0.6,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "irisWidth": {
+        "type": "range",
+        "label": "Iris Width",
+        "default": 0.25,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "glowIntensity": {
+        "type": "range",
+        "label": "Glow Intensity",
+        "default": 0.35,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "scale": {
+        "type": "range",
+        "label": "缩放",
+        "default": 0.8,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "noiseScale": {
+        "type": "range",
+        "label": "Noise Scale",
+        "default": 1.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "pupilFollow": {
+        "type": "range",
+        "label": "Pupil Follow",
+        "default": 1.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "flameSpeed": {
+        "type": "range",
+        "label": "Flame Speed",
+        "default": 1.0,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "backgroundColor": {
+        "type": "color",
+        "label": "背景色",
+        "default": "#000000"
+      }
+    }
+  },
+  "FaultyTerminal": {
+    "defaults": {
+      "scale": 1,
+      "gridMul": [
+        2,
+        1
+      ],
+      "digitSize": 1.5,
+      "timeScale": 0.3,
+      "pause": false,
+      "scanlineIntensity": 0.3,
+      "glitchAmount": 1,
+      "flickerAmount": 1,
+      "noiseAmp": 1,
+      "chromaticAberration": 0,
+      "dither": 0,
+      "curvature": 0.2,
+      "tint": "#ffffff",
+      "mouseReact": true,
+      "mouseStrength": 0.2,
+      "dpr": "Math.min(window.devicePixelRatio || 1, 2)",
+      "pageLoadAnimation": true,
+      "brightness": 1
+    },
+    "controls": {
+      "scale": {
+        "type": "range",
+        "label": "缩放",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "gridMul": {
+        "type": "text",
+        "label": "Grid Mul",
+        "default": [
+          2,
+          1
+        ]
+      },
+      "digitSize": {
+        "type": "range",
+        "label": "Digit Size",
+        "default": 1.5,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "timeScale": {
+        "type": "range",
+        "label": "Time Scale",
+        "default": 0.3,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "pause": {
+        "type": "boolean",
+        "label": "Pause",
+        "default": false
+      },
+      "scanlineIntensity": {
+        "type": "range",
+        "label": "Scanline Intensity",
+        "default": 0.3,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "glitchAmount": {
+        "type": "range",
+        "label": "Glitch Amount",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "flickerAmount": {
+        "type": "range",
+        "label": "Flicker Amount",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "noiseAmp": {
+        "type": "range",
+        "label": "Noise Amp",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "chromaticAberration": {
+        "type": "range",
+        "label": "Chromatic Aberration",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "dither": {
+        "type": "range",
+        "label": "Dither",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "curvature": {
+        "type": "range",
+        "label": "Curvature",
+        "default": 0.2,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "tint": {
+        "type": "color",
+        "label": "Tint",
+        "default": "#ffffff"
+      },
+      "mouseReact": {
+        "type": "boolean",
+        "label": "Mouse React",
+        "default": true
+      },
+      "mouseStrength": {
+        "type": "range",
+        "label": "鼠标强度",
+        "default": 0.2,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "dpr": {
+        "type": "text",
+        "label": "像素比",
+        "default": "Math.min(window.devicePixelRatio || 1, 2)"
+      },
+      "pageLoadAnimation": {
+        "type": "boolean",
+        "label": "Page Load Animation",
+        "default": true
+      },
+      "brightness": {
+        "type": "range",
+        "label": "Brightness",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      }
+    }
+  },
+  "Ferrofluid": {
+    "defaults": {
+      "paused": false,
+      "colors": [
+        "#ffffff",
+        "#ffffff",
+        "#ffffff"
+      ],
+      "speed": 0.5,
+      "scale": 1.6,
+      "turbulence": 1,
+      "fluidity": 0.1,
+      "rimWidth": 0.2,
+      "sharpness": 2.5,
+      "shimmer": 1.5,
+      "glow": 2,
+      "flowDirection": "down",
+      "opacity": 1,
+      "mouseInteraction": true,
+      "mouseStrength": 1,
+      "mouseRadius": 0.35,
+      "mouseDampening": 0.15
+    },
+    "controls": {
+      "paused": {
+        "type": "boolean",
+        "label": "暂停",
+        "default": false
+      },
+      "colors": {
+        "type": "colors",
+        "label": "颜色组",
+        "default": [
+          "#ffffff",
+          "#ffffff",
+          "#ffffff"
+        ],
+        "max": 8
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 0.5,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "scale": {
+        "type": "range",
+        "label": "缩放",
+        "default": 1.6,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "turbulence": {
+        "type": "range",
+        "label": "Turbulence",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "fluidity": {
+        "type": "range",
+        "label": "Fluidity",
+        "default": 0.1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "rimWidth": {
+        "type": "range",
+        "label": "Rim Width",
+        "default": 0.2,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "sharpness": {
+        "type": "range",
+        "label": "Sharpness",
+        "default": 2.5,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "shimmer": {
+        "type": "range",
+        "label": "Shimmer",
+        "default": 1.5,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "glow": {
+        "type": "range",
+        "label": "辉光",
+        "default": 2,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "flowDirection": {
+        "type": "select",
+        "label": "Flow Direction",
+        "default": "down",
+        "options": [
+          "up",
+          "down",
+          "left",
+          "right"
+        ]
+      },
+      "opacity": {
+        "type": "range",
+        "label": "不透明度",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "mouseInteraction": {
+        "type": "boolean",
+        "label": "鼠标交互",
+        "default": true
+      },
+      "mouseStrength": {
+        "type": "range",
+        "label": "鼠标强度",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "mouseRadius": {
+        "type": "range",
+        "label": "鼠标半径",
+        "default": 0.35,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "mouseDampening": {
+        "type": "range",
+        "label": "鼠标阻尼",
+        "default": 0.15,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      }
+    }
+  },
+  "FloatingLines": {
+    "defaults": {
+      "enabledWaves": [
+        "top",
+        "middle",
+        "bottom"
+      ],
+      "lineCount": [
+        6
+      ],
+      "lineDistance": [
+        5
+      ],
+      "bottomWavePosition": "{ x: 2.0, y: -0.7, rotate: -1 }",
+      "animationSpeed": 1,
+      "interactive": true,
+      "bendRadius": 5.0,
+      "bendStrength": -0.5,
+      "mouseDamping": 0.05,
+      "parallax": true,
+      "parallaxStrength": 0.2,
+      "mixBlendMode": "screen"
+    },
+    "controls": {
+      "enabledWaves": {
+        "type": "text",
+        "label": "Enabled Waves",
+        "default": [
+          "top",
+          "middle",
+          "bottom"
+        ]
+      },
+      "lineCount": {
+        "type": "text",
+        "label": "Line Count",
+        "default": [
+          6
+        ]
+      },
+      "lineDistance": {
+        "type": "text",
+        "label": "Line Distance",
+        "default": [
+          5
+        ]
+      },
+      "bottomWavePosition": {
+        "type": "text",
+        "label": "Bottom Wave Position",
+        "default": "{ x: 2.0, y: -0.7, rotate: -1 }"
+      },
+      "animationSpeed": {
+        "type": "range",
+        "label": "Animation Speed",
+        "default": 1,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "interactive": {
+        "type": "boolean",
+        "label": "Interactive",
+        "default": true
+      },
+      "bendRadius": {
+        "type": "range",
+        "label": "Bend Radius",
+        "default": 5.0,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "bendStrength": {
+        "type": "range",
+        "label": "Bend Strength",
+        "default": -0.5,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "mouseDamping": {
+        "type": "range",
+        "label": "Mouse Damping",
+        "default": 0.05,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "parallax": {
+        "type": "boolean",
+        "label": "Parallax",
+        "default": true
+      },
+      "parallaxStrength": {
+        "type": "range",
+        "label": "Parallax Strength",
+        "default": 0.2,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "mixBlendMode": {
+        "type": "text",
+        "label": "混合模式",
+        "default": "screen"
+      }
+    }
+  },
+  "Galaxy": {
+    "defaults": {
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "rotation": [
+        1.0,
+        0.0
+      ],
+      "starSpeed": 0.5,
+      "density": 1,
+      "hueShift": 140,
+      "disableAnimation": false,
+      "speed": 1.0,
+      "mouseInteraction": true,
+      "glowIntensity": 0.3,
+      "saturation": 0.0,
+      "mouseRepulsion": true,
+      "repulsionStrength": 2,
+      "twinkleIntensity": 0.3,
+      "rotationSpeed": 0.1,
+      "autoCenterRepulsion": 0,
+      "transparent": true
+    },
+    "controls": {
+      "focal": {
+        "type": "text",
+        "label": "Focal",
+        "default": [
+          0.5,
+          0.5
+        ]
+      },
+      "rotation": {
+        "type": "text",
+        "label": "旋转",
+        "default": [
+          1.0,
+          0.0
+        ]
+      },
+      "starSpeed": {
+        "type": "range",
+        "label": "Star Speed",
+        "default": 0.5,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "density": {
+        "type": "range",
+        "label": "密度",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "hueShift": {
+        "type": "range",
+        "label": "Hue Shift",
+        "default": 140,
+        "min": 0,
+        "max": 280,
+        "step": 0.1
+      },
+      "disableAnimation": {
+        "type": "boolean",
+        "label": "Disable Animation",
+        "default": false
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 1.0,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "mouseInteraction": {
+        "type": "boolean",
+        "label": "鼠标交互",
+        "default": true
+      },
+      "glowIntensity": {
+        "type": "range",
+        "label": "Glow Intensity",
+        "default": 0.3,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "saturation": {
+        "type": "range",
+        "label": "Saturation",
+        "default": 0.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "mouseRepulsion": {
+        "type": "boolean",
+        "label": "Mouse Repulsion",
+        "default": true
+      },
+      "repulsionStrength": {
+        "type": "range",
+        "label": "Repulsion Strength",
+        "default": 2,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "twinkleIntensity": {
+        "type": "range",
+        "label": "Twinkle Intensity",
+        "default": 0.3,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "rotationSpeed": {
+        "type": "range",
+        "label": "旋转速度",
+        "default": 0.1,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "autoCenterRepulsion": {
+        "type": "range",
+        "label": "Auto Center Repulsion",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "transparent": {
+        "type": "boolean",
+        "label": "Transparent",
+        "default": true
+      }
+    }
+  },
+  "GradientBlinds": {
+    "defaults": {
+      "paused": false,
+      "angle": 0,
+      "noise": 0.3,
+      "blindCount": 16,
+      "blindMinWidth": 60,
+      "mouseDampening": 0.15,
+      "mirrorGradient": false,
+      "spotlightRadius": 0.5,
+      "spotlightSoftness": 1,
+      "spotlightOpacity": 1,
+      "distortAmount": 0,
+      "shineDirection": "left",
+      "mixBlendMode": "lighten"
+    },
+    "controls": {
+      "paused": {
+        "type": "boolean",
+        "label": "暂停",
+        "default": false
+      },
+      "angle": {
+        "type": "range",
+        "label": "角度",
+        "default": 0,
+        "min": -180,
+        "max": 180,
+        "step": 1
+      },
+      "noise": {
+        "type": "range",
+        "label": "噪点",
+        "default": 0.3,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "blindCount": {
+        "type": "range",
+        "label": "百叶数量",
+        "default": 16,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "blindMinWidth": {
+        "type": "range",
+        "label": "Blind Min Width",
+        "default": 60,
+        "min": 0,
+        "max": 120,
+        "step": 1
+      },
+      "mouseDampening": {
+        "type": "range",
+        "label": "鼠标阻尼",
+        "default": 0.15,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "mirrorGradient": {
+        "type": "boolean",
+        "label": "Mirror Gradient",
+        "default": false
+      },
+      "spotlightRadius": {
+        "type": "range",
+        "label": "Spotlight Radius",
+        "default": 0.5,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "spotlightSoftness": {
+        "type": "range",
+        "label": "Spotlight Softness",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "spotlightOpacity": {
+        "type": "range",
+        "label": "Spotlight Opacity",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "distortAmount": {
+        "type": "range",
+        "label": "Distort Amount",
+        "default": 0,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "shineDirection": {
+        "type": "select",
+        "label": "Shine Direction",
+        "default": "left",
+        "options": [
+          "left",
+          "right"
+        ]
+      },
+      "mixBlendMode": {
+        "type": "text",
+        "label": "混合模式",
+        "default": "lighten"
+      }
+    }
+  },
+  "Grainient": {
+    "defaults": {
+      "timeSpeed": 0.25,
+      "colorBalance": 0.0,
+      "warpStrength": 1.0,
+      "warpFrequency": 5.0,
+      "warpSpeed": 2.0,
+      "warpAmplitude": 50.0,
+      "blendAngle": 0.0,
+      "blendSoftness": 0.05,
+      "rotationAmount": 500.0,
+      "noiseScale": 2.0,
+      "grainAmount": 0.1,
+      "grainScale": 2.0,
+      "grainAnimated": false,
+      "contrast": 1.5,
+      "gamma": 1.0,
+      "saturation": 1.0,
+      "centerX": 0.0,
+      "centerY": 0.0,
+      "zoom": 0.9,
+      "color1": "#FF9FFC",
+      "color2": "#5227FF",
+      "color3": "#B497CF",
+      "className": ""
+    },
+    "controls": {
+      "timeSpeed": {
+        "type": "range",
+        "label": "Time Speed",
+        "default": 0.25,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "colorBalance": {
+        "type": "range",
+        "label": "Color Balance",
+        "default": 0.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "warpStrength": {
+        "type": "range",
+        "label": "Warp Strength",
+        "default": 1.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "warpFrequency": {
+        "type": "range",
+        "label": "Warp Frequency",
+        "default": 5.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "warpSpeed": {
+        "type": "range",
+        "label": "Warp Speed",
+        "default": 2.0,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "warpAmplitude": {
+        "type": "range",
+        "label": "Warp Amplitude",
+        "default": 50.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "blendAngle": {
+        "type": "range",
+        "label": "Blend Angle",
+        "default": 0.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "blendSoftness": {
+        "type": "range",
+        "label": "Blend Softness",
+        "default": 0.05,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "rotationAmount": {
+        "type": "range",
+        "label": "Rotation Amount",
+        "default": 500.0,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "noiseScale": {
+        "type": "range",
+        "label": "Noise Scale",
+        "default": 2.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "grainAmount": {
+        "type": "range",
+        "label": "Grain Amount",
+        "default": 0.1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "grainScale": {
+        "type": "range",
+        "label": "Grain Scale",
+        "default": 2.0,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "grainAnimated": {
+        "type": "boolean",
+        "label": "Grain Animated",
+        "default": false
+      },
+      "contrast": {
+        "type": "range",
+        "label": "Contrast",
+        "default": 1.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "gamma": {
+        "type": "range",
+        "label": "Gamma",
+        "default": 1.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "saturation": {
+        "type": "range",
+        "label": "Saturation",
+        "default": 1.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "centerX": {
+        "type": "range",
+        "label": "Center X",
+        "default": 0.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "centerY": {
+        "type": "range",
+        "label": "Center Y",
+        "default": 0.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "zoom": {
+        "type": "range",
+        "label": "缩放",
+        "default": 0.9,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "color1": {
+        "type": "color",
+        "label": "Color1",
+        "default": "#FF9FFC"
+      },
+      "color2": {
+        "type": "color",
+        "label": "Color2",
+        "default": "#5227FF"
+      },
+      "color3": {
+        "type": "color",
+        "label": "Color3",
+        "default": "#B497CF"
+      },
+      "className": {
+        "type": "text",
+        "label": "Class Name",
+        "default": ""
+      }
+    }
+  },
+  "GridDistortion": {
+    "defaults": {
+      "grid": 15,
+      "mouse": 0.1,
+      "strength": 0.15,
+      "relaxation": 0.9,
+      "className": ""
+    },
+    "controls": {
+      "grid": {
+        "type": "range",
+        "label": "Grid",
+        "default": 15,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "mouse": {
+        "type": "range",
+        "label": "Mouse",
+        "default": 0.1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "strength": {
+        "type": "range",
+        "label": "Strength",
+        "default": 0.15,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "relaxation": {
+        "type": "range",
+        "label": "Relaxation",
+        "default": 0.9,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "className": {
+        "type": "text",
+        "label": "Class Name",
+        "default": ""
+      }
+    }
+  },
+  "GridMotion": {
+    "defaults": {
+      "items": [],
+      "gradientColor": "black"
+    },
+    "controls": {
+      "items": {
+        "type": "colors",
+        "label": "Items",
+        "default": [],
+        "max": 8
+      },
+      "gradientColor": {
+        "type": "text",
+        "label": "渐变颜色",
+        "default": "black"
+      }
+    }
+  },
+  "GridScan": {
+    "defaults": {
+      "enableWebcam": false,
+      "showPreview": false,
+      "modelsPath": "/assets/3d/",
+      "lineThickness": 1,
+      "linesColor": "#2F293A",
+      "scanColor": "#FF9FFC",
+      "scanOpacity": 0.4,
+      "gridScale": 0.1,
+      "lineStyle": "solid",
+      "lineJitter": 0.1,
+      "scanDirection": "pingpong",
+      "enablePost": true,
+      "bloomIntensity": 0,
+      "bloomThreshold": 0,
+      "bloomSmoothing": 0,
+      "chromaticAberration": 0.002,
+      "noiseIntensity": 0.01,
+      "scanGlow": 0.5,
+      "scanSoftness": 2,
+      "scanPhaseTaper": 0.9,
+      "scanDuration": 2.0,
+      "scanDelay": 2.0,
+      "enableGyro": false,
+      "scanOnClick": false,
+      "snapBackDelay": 250
+    },
+    "controls": {
+      "enableWebcam": {
+        "type": "boolean",
+        "label": "Enable Webcam",
+        "default": false
+      },
+      "showPreview": {
+        "type": "boolean",
+        "label": "Show Preview",
+        "default": false
+      },
+      "modelsPath": {
+        "type": "text",
+        "label": "Models Path",
+        "default": "/assets/3d/"
+      },
+      "lineThickness": {
+        "type": "range",
+        "label": "Line Thickness",
+        "default": 1,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "linesColor": {
+        "type": "color",
+        "label": "Lines Color",
+        "default": "#2F293A"
+      },
+      "scanColor": {
+        "type": "color",
+        "label": "Scan Color",
+        "default": "#FF9FFC"
+      },
+      "scanOpacity": {
+        "type": "range",
+        "label": "Scan Opacity",
+        "default": 0.4,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "gridScale": {
+        "type": "range",
+        "label": "Grid Scale",
+        "default": 0.1,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "lineStyle": {
+        "type": "select",
+        "label": "Line Style",
+        "default": "solid",
+        "options": [
+          "solid",
+          "dashed",
+          "dotted"
+        ]
+      },
+      "lineJitter": {
+        "type": "range",
+        "label": "Line Jitter",
+        "default": 0.1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "scanDirection": {
+        "type": "select",
+        "label": "Scan Direction",
+        "default": "pingpong",
+        "options": [
+          "forward",
+          "reverse",
+          "pingpong"
+        ]
+      },
+      "enablePost": {
+        "type": "boolean",
+        "label": "Enable Post",
+        "default": true
+      },
+      "bloomIntensity": {
+        "type": "range",
+        "label": "Bloom Intensity",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "bloomThreshold": {
+        "type": "range",
+        "label": "Bloom Threshold",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "bloomSmoothing": {
+        "type": "range",
+        "label": "Bloom Smoothing",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "chromaticAberration": {
+        "type": "range",
+        "label": "Chromatic Aberration",
+        "default": 0.002,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "noiseIntensity": {
+        "type": "range",
+        "label": "Noise Intensity",
+        "default": 0.01,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "scanGlow": {
+        "type": "range",
+        "label": "Scan Glow",
+        "default": 0.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "scanSoftness": {
+        "type": "range",
+        "label": "Scan Softness",
+        "default": 2,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "scanPhaseTaper": {
+        "type": "range",
+        "label": "Scan Phase Taper",
+        "default": 0.9,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "scanDuration": {
+        "type": "range",
+        "label": "Scan Duration",
+        "default": 2.0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "scanDelay": {
+        "type": "range",
+        "label": "Scan Delay",
+        "default": 2.0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "enableGyro": {
+        "type": "boolean",
+        "label": "Enable Gyro",
+        "default": false
+      },
+      "scanOnClick": {
+        "type": "boolean",
+        "label": "Scan On Click",
+        "default": false
+      },
+      "snapBackDelay": {
+        "type": "range",
+        "label": "Snap Back Delay",
+        "default": 250,
+        "min": 0,
+        "max": 500,
+        "step": 1
+      }
+    }
+  },
+  "Hyperspeed": {
+    "defaults": {
+      "distortion": "none",
+      "length": 400,
+      "roadWidth": 10,
+      "islandWidth": 2,
+      "lanesPerRoad": 4,
+      "fogColor": 16777215,
+      "fogDensity": 0.02,
+      "fov": 90,
+      "fogNear": 1,
+      "fogFar": 500,
+      "speedUp": 0,
+      "slowDown": 0
+    },
+    "controls": {
+      "distortion": {
+        "type": "text",
+        "label": "Distortion",
+        "default": "none"
+      },
+      "length": {
+        "type": "range",
+        "label": "Length",
+        "default": 400,
+        "min": 0,
+        "max": 800,
+        "step": 1
+      },
+      "roadWidth": {
+        "type": "range",
+        "label": "Road Width",
+        "default": 10,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "islandWidth": {
+        "type": "range",
+        "label": "Island Width",
+        "default": 2,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "lanesPerRoad": {
+        "type": "range",
+        "label": "Lanes Per Road",
+        "default": 4,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "fogColor": {
+        "type": "range",
+        "label": "Fog Color",
+        "default": 16777215,
+        "min": 0,
+        "max": 33554430,
+        "step": 0.1
+      },
+      "fogDensity": {
+        "type": "range",
+        "label": "Fog Density",
+        "default": 0.02,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "fov": {
+        "type": "range",
+        "label": "Fov",
+        "default": 90,
+        "min": 0,
+        "max": 180,
+        "step": 0.1
+      },
+      "fogNear": {
+        "type": "range",
+        "label": "Fog Near",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "fogFar": {
+        "type": "range",
+        "label": "Fog Far",
+        "default": 500,
+        "min": 0,
+        "max": 1000,
+        "step": 0.1
+      },
+      "speedUp": {
+        "type": "range",
+        "label": "Speed Up",
+        "default": 0,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "slowDown": {
+        "type": "range",
+        "label": "Slow Down",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      }
+    }
+  },
+  "Iridescence": {
+    "defaults": {
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "speed": 1.0,
+      "amplitude": 0.1,
+      "mouseReact": true
+    },
+    "controls": {
+      "color": {
+        "type": "text",
+        "label": "颜色",
+        "default": [
+          1,
+          1,
+          1
+        ]
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 1.0,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "amplitude": {
+        "type": "range",
+        "label": "振幅",
+        "default": 0.1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "mouseReact": {
+        "type": "boolean",
+        "label": "Mouse React",
+        "default": true
+      }
+    }
+  },
+  "LetterGlitch": {
+    "defaults": {
+      "glitchColors": [
+        "#2b4539",
+        "#61dca3",
+        "#61b3dc"
+      ],
+      "glitchSpeed": 50,
+      "centerVignette": false,
+      "outerVignette": true,
+      "smooth": true,
+      "characters": "'ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*()-_+=/[]{};:<>."
+    },
+    "controls": {
+      "glitchColors": {
+        "type": "colors",
+        "label": "Glitch Colors",
+        "default": [
+          "#2b4539",
+          "#61dca3",
+          "#61b3dc"
+        ],
+        "max": 8
+      },
+      "glitchSpeed": {
+        "type": "range",
+        "label": "故障速度",
+        "default": 50,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "centerVignette": {
+        "type": "boolean",
+        "label": "Center Vignette",
+        "default": false
+      },
+      "outerVignette": {
+        "type": "boolean",
+        "label": "Outer Vignette",
+        "default": true
+      },
+      "smooth": {
+        "type": "boolean",
+        "label": "Smooth",
+        "default": true
+      },
+      "characters": {
+        "type": "text",
+        "label": "Characters",
+        "default": "'ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*()-_+=/[]{};:<>."
+      }
+    }
+  },
+  "Lightfall": {
+    "defaults": {
+      "paused": false,
+      "colors": [
+        "#A6C8FF",
+        "#5227FF",
+        "#FF9FFC"
+      ],
+      "backgroundColor": "#0A29FF",
+      "speed": 0.5,
+      "streakCount": 2,
+      "streakWidth": 1,
+      "streakLength": 1,
+      "glow": 1,
+      "density": 0.6,
+      "twinkle": 1,
+      "zoom": 3,
+      "backgroundGlow": 0.5,
+      "opacity": 1,
+      "mouseInteraction": true,
+      "mouseStrength": 0.5,
+      "mouseRadius": 1,
+      "mouseDampening": 0.15
+    },
+    "controls": {
+      "paused": {
+        "type": "boolean",
+        "label": "暂停",
+        "default": false
+      },
+      "colors": {
+        "type": "colors",
+        "label": "颜色组",
+        "default": [
+          "#A6C8FF",
+          "#5227FF",
+          "#FF9FFC"
+        ],
+        "max": 8
+      },
+      "backgroundColor": {
+        "type": "color",
+        "label": "背景色",
+        "default": "#0A29FF"
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 0.5,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "streakCount": {
+        "type": "range",
+        "label": "光线数量",
+        "default": 2,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "streakWidth": {
+        "type": "range",
+        "label": "光线宽度",
+        "default": 1,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "streakLength": {
+        "type": "range",
+        "label": "光线长度",
+        "default": 1,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "glow": {
+        "type": "range",
+        "label": "辉光",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "density": {
+        "type": "range",
+        "label": "密度",
+        "default": 0.6,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "twinkle": {
+        "type": "range",
+        "label": "闪烁",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "zoom": {
+        "type": "range",
+        "label": "缩放",
+        "default": 3,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "backgroundGlow": {
+        "type": "range",
+        "label": "背景辉光",
+        "default": 0.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "opacity": {
+        "type": "range",
+        "label": "不透明度",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "mouseInteraction": {
+        "type": "boolean",
+        "label": "鼠标交互",
+        "default": true
+      },
+      "mouseStrength": {
+        "type": "range",
+        "label": "鼠标强度",
+        "default": 0.5,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "mouseRadius": {
+        "type": "range",
+        "label": "鼠标半径",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "mouseDampening": {
+        "type": "range",
+        "label": "鼠标阻尼",
+        "default": 0.15,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      }
+    }
+  },
+  "Lightning": {
+    "defaults": {
+      "hue": 230,
+      "xOffset": 0,
+      "speed": 1,
+      "intensity": 1,
+      "size": 1
+    },
+    "controls": {
+      "hue": {
+        "type": "range",
+        "label": "Hue",
+        "default": 230,
+        "min": 0,
+        "max": 460,
+        "step": 0.1
+      },
+      "xOffset": {
+        "type": "range",
+        "label": "X Offset",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 1,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "intensity": {
+        "type": "range",
+        "label": "强度",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "size": {
+        "type": "range",
+        "label": "Size",
+        "default": 1,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      }
+    }
+  },
+  "LightPillar": {
+    "defaults": {
+      "topColor": "#5227FF",
+      "bottomColor": "#FF9FFC",
+      "intensity": 1.0,
+      "rotationSpeed": 0.3,
+      "interactive": false,
+      "className": "",
+      "glowAmount": 0.005,
+      "pillarWidth": 3.0,
+      "pillarHeight": 0.4,
+      "noiseIntensity": 0.5,
+      "mixBlendMode": "screen",
+      "pillarRotation": 0,
+      "quality": "high"
+    },
+    "controls": {
+      "topColor": {
+        "type": "color",
+        "label": "Top Color",
+        "default": "#5227FF"
+      },
+      "bottomColor": {
+        "type": "color",
+        "label": "Bottom Color",
+        "default": "#FF9FFC"
+      },
+      "intensity": {
+        "type": "range",
+        "label": "强度",
+        "default": 1.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "rotationSpeed": {
+        "type": "range",
+        "label": "旋转速度",
+        "default": 0.3,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "interactive": {
+        "type": "boolean",
+        "label": "Interactive",
+        "default": false
+      },
+      "className": {
+        "type": "text",
+        "label": "Class Name",
+        "default": ""
+      },
+      "glowAmount": {
+        "type": "range",
+        "label": "Glow Amount",
+        "default": 0.005,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "pillarWidth": {
+        "type": "range",
+        "label": "Pillar Width",
+        "default": 3.0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "pillarHeight": {
+        "type": "range",
+        "label": "Pillar Height",
+        "default": 0.4,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "noiseIntensity": {
+        "type": "range",
+        "label": "Noise Intensity",
+        "default": 0.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "mixBlendMode": {
+        "type": "text",
+        "label": "混合模式",
+        "default": "screen"
+      },
+      "pillarRotation": {
+        "type": "range",
+        "label": "Pillar Rotation",
+        "default": 0,
+        "min": -180,
+        "max": 180,
+        "step": 1
+      },
+      "quality": {
+        "type": "select",
+        "label": "Quality",
+        "default": "high",
+        "options": [
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    }
+  },
+  "LightRays": {
+    "defaults": {
+      "raysOrigin": "top-center",
+      "raysColor": "#ffffff",
+      "raysSpeed": 1,
+      "lightSpread": 1,
+      "rayLength": 2,
+      "pulsating": false,
+      "fadeDistance": 1.0,
+      "saturation": 1.0,
+      "followMouse": true,
+      "mouseInfluence": 0.1,
+      "noiseAmount": 0.0,
+      "distortion": 0.0,
+      "className": ""
+    },
+    "controls": {
+      "raysOrigin": {
+        "type": "select",
+        "label": "Rays Origin",
+        "default": "top-center",
+        "options": [
+          "top-center",
+          "top-left",
+          "top-right",
+          "bottom-center",
+          "bottom-left",
+          "bottom-right",
+          "left-center",
+          "right-center"
+        ]
+      },
+      "raysColor": {
+        "type": "color",
+        "label": "光线颜色",
+        "default": "#ffffff"
+      },
+      "raysSpeed": {
+        "type": "range",
+        "label": "光线速度",
+        "default": 1,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "lightSpread": {
+        "type": "range",
+        "label": "光线扩散",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "rayLength": {
+        "type": "range",
+        "label": "Ray Length",
+        "default": 2,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "pulsating": {
+        "type": "boolean",
+        "label": "Pulsating",
+        "default": false
+      },
+      "fadeDistance": {
+        "type": "range",
+        "label": "Fade Distance",
+        "default": 1.0,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "saturation": {
+        "type": "range",
+        "label": "Saturation",
+        "default": 1.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "followMouse": {
+        "type": "boolean",
+        "label": "Follow Mouse",
+        "default": true
+      },
+      "mouseInfluence": {
+        "type": "range",
+        "label": "Mouse Influence",
+        "default": 0.1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "noiseAmount": {
+        "type": "range",
+        "label": "Noise Amount",
+        "default": 0.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "distortion": {
+        "type": "range",
+        "label": "Distortion",
+        "default": 0.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "className": {
+        "type": "text",
+        "label": "Class Name",
+        "default": ""
+      }
+    }
+  },
+  "LineWaves": {
+    "defaults": {
+      "speed": 0.3,
+      "innerLineCount": 32.0,
+      "outerLineCount": 36.0,
+      "warpIntensity": 1.0,
+      "rotation": -45,
+      "edgeFadeWidth": 0.0,
+      "colorCycleSpeed": 1.0,
+      "brightness": 0.2,
+      "color1": "#ffffff",
+      "color2": "#ffffff",
+      "color3": "#ffffff",
+      "enableMouseInteraction": true,
+      "mouseInfluence": 2.0
+    },
+    "controls": {
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 0.3,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "innerLineCount": {
+        "type": "range",
+        "label": "Inner Line Count",
+        "default": 32.0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "outerLineCount": {
+        "type": "range",
+        "label": "Outer Line Count",
+        "default": 36.0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "warpIntensity": {
+        "type": "range",
+        "label": "Warp Intensity",
+        "default": 1.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "rotation": {
+        "type": "range",
+        "label": "旋转",
+        "default": -45,
+        "min": -180,
+        "max": 180,
+        "step": 1
+      },
+      "edgeFadeWidth": {
+        "type": "range",
+        "label": "Edge Fade Width",
+        "default": 0.0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "colorCycleSpeed": {
+        "type": "range",
+        "label": "Color Cycle Speed",
+        "default": 1.0,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "brightness": {
+        "type": "range",
+        "label": "Brightness",
+        "default": 0.2,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "color1": {
+        "type": "color",
+        "label": "Color1",
+        "default": "#ffffff"
+      },
+      "color2": {
+        "type": "color",
+        "label": "Color2",
+        "default": "#ffffff"
+      },
+      "color3": {
+        "type": "color",
+        "label": "Color3",
+        "default": "#ffffff"
+      },
+      "enableMouseInteraction": {
+        "type": "boolean",
+        "label": "Enable Mouse Interaction",
+        "default": true
+      },
+      "mouseInfluence": {
+        "type": "range",
+        "label": "Mouse Influence",
+        "default": 2.0,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      }
+    }
+  },
+  "LiquidChrome": {
+    "defaults": {
+      "baseColor": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "speed": 0.2,
+      "amplitude": 0.5,
+      "frequencyX": 3,
+      "frequencyY": 2,
+      "interactive": true
+    },
+    "controls": {
+      "baseColor": {
+        "type": "text",
+        "label": "基础颜色",
+        "default": [
+          0.1,
+          0.1,
+          0.1
+        ]
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 0.2,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "amplitude": {
+        "type": "range",
+        "label": "振幅",
+        "default": 0.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "frequencyX": {
+        "type": "range",
+        "label": "Frequency X",
+        "default": 3,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "frequencyY": {
+        "type": "range",
+        "label": "Frequency Y",
+        "default": 2,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "interactive": {
+        "type": "boolean",
+        "label": "Interactive",
+        "default": true
+      }
+    }
+  },
+  "LiquidEther": {
+    "defaults": {
+      "colors": [
+        "#A6C8FF",
+        "#5227FF",
+        "#FF9FFC"
+      ],
+      "speed": 1.0,
+      "scale": 1.0,
+      "opacity": 1.0,
+      "className": ""
+    },
+    "controls": {
+      "colors": {
+        "type": "colors",
+        "label": "颜色组",
+        "default": [
+          "#A6C8FF",
+          "#5227FF",
+          "#FF9FFC"
+        ],
+        "max": 8
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 1.0,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "scale": {
+        "type": "range",
+        "label": "缩放",
+        "default": 1.0,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "opacity": {
+        "type": "range",
+        "label": "不透明度",
+        "default": 1.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "className": {
+        "type": "text",
+        "label": "Class Name",
+        "default": ""
+      }
+    }
+  },
+  "Orb": {
+    "defaults": {
+      "hue": 0,
+      "hoverIntensity": 0.2,
+      "rotateOnHover": true,
+      "forceHoverState": false,
+      "backgroundColor": "#000000"
+    },
+    "controls": {
+      "hue": {
+        "type": "range",
+        "label": "Hue",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "hoverIntensity": {
+        "type": "range",
+        "label": "Hover Intensity",
+        "default": 0.2,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "rotateOnHover": {
+        "type": "boolean",
+        "label": "Rotate On Hover",
+        "default": true
+      },
+      "forceHoverState": {
+        "type": "boolean",
+        "label": "Force Hover State",
+        "default": false
+      },
+      "backgroundColor": {
+        "type": "color",
+        "label": "背景色",
+        "default": "#000000"
+      }
+    }
+  },
+  "Particles": {
+    "defaults": {
+      "particleCount": 200,
+      "particleSpread": 10,
+      "speed": 0.1,
+      "moveParticlesOnHover": false,
+      "particleHoverFactor": 1,
+      "alphaParticles": false,
+      "particleBaseSize": 100,
+      "sizeRandomness": 1,
+      "cameraDistance": 20,
+      "disableRotation": false,
+      "pixelRatio": 1
+    },
+    "controls": {
+      "particleCount": {
+        "type": "range",
+        "label": "粒子数量",
+        "default": 200,
+        "min": 0,
+        "max": 400,
+        "step": 1
+      },
+      "particleSpread": {
+        "type": "range",
+        "label": "Particle Spread",
+        "default": 10,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 0.1,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "moveParticlesOnHover": {
+        "type": "boolean",
+        "label": "Move Particles On Hover",
+        "default": false
+      },
+      "particleHoverFactor": {
+        "type": "range",
+        "label": "Particle Hover Factor",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "alphaParticles": {
+        "type": "boolean",
+        "label": "Alpha Particles",
+        "default": false
+      },
+      "particleBaseSize": {
+        "type": "range",
+        "label": "Particle Base Size",
+        "default": 100,
+        "min": 0,
+        "max": 200,
+        "step": 1
+      },
+      "sizeRandomness": {
+        "type": "range",
+        "label": "Size Randomness",
+        "default": 1,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "cameraDistance": {
+        "type": "range",
+        "label": "Camera Distance",
+        "default": 20,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "disableRotation": {
+        "type": "boolean",
+        "label": "Disable Rotation",
+        "default": false
+      },
+      "pixelRatio": {
+        "type": "range",
+        "label": "Pixel Ratio",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      }
+    }
+  },
+  "PixelBlast": {
+    "defaults": {
+      "variant": "square",
+      "pixelSize": 3,
+      "color": "#B497CF",
+      "antialias": true,
+      "patternScale": 2,
+      "patternDensity": 1,
+      "liquid": false,
+      "liquidStrength": 0.1,
+      "liquidRadius": 1,
+      "pixelSizeJitter": 0,
+      "enableRipples": true,
+      "rippleIntensityScale": 1,
+      "rippleThickness": 0.1,
+      "rippleSpeed": 0.3,
+      "liquidWobbleSpeed": 4.5,
+      "autoPauseOffscreen": true,
+      "speed": 0.5,
+      "transparent": true,
+      "edgeFade": 0.5,
+      "noiseAmount": 0
+    },
+    "controls": {
+      "variant": {
+        "type": "select",
+        "label": "Variant",
+        "default": "square",
+        "options": [
+          "square",
+          "circle"
+        ]
+      },
+      "pixelSize": {
+        "type": "range",
+        "label": "Pixel Size",
+        "default": 3,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "color": {
+        "type": "color",
+        "label": "颜色",
+        "default": "#B497CF"
+      },
+      "antialias": {
+        "type": "boolean",
+        "label": "Antialias",
+        "default": true
+      },
+      "patternScale": {
+        "type": "range",
+        "label": "Pattern Scale",
+        "default": 2,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "patternDensity": {
+        "type": "range",
+        "label": "Pattern Density",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "liquid": {
+        "type": "boolean",
+        "label": "Liquid",
+        "default": false
+      },
+      "liquidStrength": {
+        "type": "range",
+        "label": "Liquid Strength",
+        "default": 0.1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "liquidRadius": {
+        "type": "range",
+        "label": "Liquid Radius",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "pixelSizeJitter": {
+        "type": "range",
+        "label": "Pixel Size Jitter",
+        "default": 0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "enableRipples": {
+        "type": "boolean",
+        "label": "Enable Ripples",
+        "default": true
+      },
+      "rippleIntensityScale": {
+        "type": "range",
+        "label": "Ripple Intensity Scale",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "rippleThickness": {
+        "type": "range",
+        "label": "Ripple Thickness",
+        "default": 0.1,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "rippleSpeed": {
+        "type": "range",
+        "label": "Ripple Speed",
+        "default": 0.3,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "liquidWobbleSpeed": {
+        "type": "range",
+        "label": "Liquid Wobble Speed",
+        "default": 4.5,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "autoPauseOffscreen": {
+        "type": "boolean",
+        "label": "Auto Pause Offscreen",
+        "default": true
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 0.5,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "transparent": {
+        "type": "boolean",
+        "label": "Transparent",
+        "default": true
+      },
+      "edgeFade": {
+        "type": "range",
+        "label": "Edge Fade",
+        "default": 0.5,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "noiseAmount": {
+        "type": "range",
+        "label": "Noise Amount",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      }
+    }
+  },
+  "PixelSnow": {
+    "defaults": {
+      "color": "#ffffff",
+      "flakeSize": 0.01,
+      "minFlakeSize": 1.25,
+      "pixelResolution": 200,
+      "speed": 1.25,
+      "depthFade": 8,
+      "farPlane": 20,
+      "brightness": 1,
+      "gamma": 0.4545,
+      "density": 0.3,
+      "variant": "square",
+      "direction": 125,
+      "className": "",
+      "style": "{}"
+    },
+    "controls": {
+      "color": {
+        "type": "color",
+        "label": "颜色",
+        "default": "#ffffff"
+      },
+      "flakeSize": {
+        "type": "range",
+        "label": "Flake Size",
+        "default": 0.01,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "minFlakeSize": {
+        "type": "range",
+        "label": "Min Flake Size",
+        "default": 1.25,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "pixelResolution": {
+        "type": "range",
+        "label": "Pixel Resolution",
+        "default": 200,
+        "min": 0,
+        "max": 400,
+        "step": 0.1
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 1.25,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "depthFade": {
+        "type": "range",
+        "label": "Depth Fade",
+        "default": 8,
+        "min": 0,
+        "max": 16,
+        "step": 0.1
+      },
+      "farPlane": {
+        "type": "range",
+        "label": "Far Plane",
+        "default": 20,
+        "min": 0,
+        "max": 40,
+        "step": 0.1
+      },
+      "brightness": {
+        "type": "range",
+        "label": "Brightness",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "gamma": {
+        "type": "range",
+        "label": "Gamma",
+        "default": 0.4545,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "density": {
+        "type": "range",
+        "label": "密度",
+        "default": 0.3,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "variant": {
+        "type": "select",
+        "label": "Variant",
+        "default": "square",
+        "options": [
+          "square",
+          "circle"
+        ]
+      },
+      "direction": {
+        "type": "range",
+        "label": "方向",
+        "default": 125,
+        "min": 0,
+        "max": 250,
+        "step": 0.1
+      },
+      "className": {
+        "type": "text",
+        "label": "Class Name",
+        "default": ""
+      },
+      "style": {
+        "type": "text",
+        "label": "Style",
+        "default": "{}"
+      }
+    }
+  },
+  "Plasma": {
+    "defaults": {
+      "color": "#ffffff",
+      "speed": 1,
+      "direction": "forward",
+      "scale": 1,
+      "opacity": 1,
+      "mouseInteractive": true,
+      "renderScale": 0.55,
+      "maxDpr": 1.5,
+      "targetFps": 60,
+      "iterations": 60
+    },
+    "controls": {
+      "color": {
+        "type": "color",
+        "label": "颜色",
+        "default": "#ffffff"
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 1,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "direction": {
+        "type": "select",
+        "label": "方向",
+        "default": "forward",
+        "options": [
+          "forward",
+          "reverse",
+          "pingpong"
+        ]
+      },
+      "scale": {
+        "type": "range",
+        "label": "缩放",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "opacity": {
+        "type": "range",
+        "label": "不透明度",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "mouseInteractive": {
+        "type": "boolean",
+        "label": "Mouse Interactive",
+        "default": true
+      },
+      "renderScale": {
+        "type": "range",
+        "label": "渲染缩放",
+        "default": 0.55,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "maxDpr": {
+        "type": "range",
+        "label": "最大像素比",
+        "default": 1.5,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "targetFps": {
+        "type": "range",
+        "label": "目标帧率",
+        "default": 60,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "iterations": {
+        "type": "range",
+        "label": "迭代次数",
+        "default": 60,
+        "min": 0,
+        "max": 120,
+        "step": 1
+      }
+    }
+  },
+  "PlasmaWave": {
+    "defaults": {
+      "xOffset": 0,
+      "yOffset": 0,
+      "rotationDeg": 0,
+      "focalLength": 0.8,
+      "speed1": 0.05,
+      "speed2": 0.05,
+      "dir2": 1.0,
+      "bend1": 1,
+      "bend2": 0.5,
+      "colors": [
+        "#A855F7",
+        "#06B6D4"
+      ]
+    },
+    "controls": {
+      "xOffset": {
+        "type": "range",
+        "label": "X Offset",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "yOffset": {
+        "type": "range",
+        "label": "Y Offset",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "rotationDeg": {
+        "type": "range",
+        "label": "Rotation Deg",
+        "default": 0,
+        "min": -180,
+        "max": 180,
+        "step": 1
+      },
+      "focalLength": {
+        "type": "range",
+        "label": "Focal Length",
+        "default": 0.8,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "speed1": {
+        "type": "range",
+        "label": "Speed1",
+        "default": 0.05,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "speed2": {
+        "type": "range",
+        "label": "Speed2",
+        "default": 0.05,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "dir2": {
+        "type": "range",
+        "label": "Dir2",
+        "default": 1.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "bend1": {
+        "type": "range",
+        "label": "Bend1",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "bend2": {
+        "type": "range",
+        "label": "Bend2",
+        "default": 0.5,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "colors": {
+        "type": "colors",
+        "label": "颜色组",
+        "default": [
+          "#A855F7",
+          "#06B6D4"
+        ],
+        "max": 8
+      }
+    }
+  },
+  "Prism": {
+    "defaults": {
+      "height": 3.5,
+      "baseWidth": 5.5,
+      "animationType": "rotate",
+      "glow": 1,
+      "offset": "{ x: 0, y: 0 }",
+      "noise": 0.5,
+      "transparent": true,
+      "scale": 3.6,
+      "hueShift": 0,
+      "colorFrequency": 1,
+      "hoverStrength": 2,
+      "inertia": 0.05,
+      "bloom": 1,
+      "suspendWhenOffscreen": false,
+      "timeScale": 0.5
+    },
+    "controls": {
+      "height": {
+        "type": "range",
+        "label": "Height",
+        "default": 3.5,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "baseWidth": {
+        "type": "range",
+        "label": "Base Width",
+        "default": 5.5,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "animationType": {
+        "type": "select",
+        "label": "Animation Type",
+        "default": "rotate",
+        "options": [
+          "rotate",
+          "rotate3d",
+          "none"
+        ]
+      },
+      "glow": {
+        "type": "range",
+        "label": "辉光",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "offset": {
+        "type": "text",
+        "label": "Offset",
+        "default": "{ x: 0, y: 0 }"
+      },
+      "noise": {
+        "type": "range",
+        "label": "噪点",
+        "default": 0.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "transparent": {
+        "type": "boolean",
+        "label": "Transparent",
+        "default": true
+      },
+      "scale": {
+        "type": "range",
+        "label": "缩放",
+        "default": 3.6,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "hueShift": {
+        "type": "range",
+        "label": "Hue Shift",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "colorFrequency": {
+        "type": "range",
+        "label": "Color Frequency",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "hoverStrength": {
+        "type": "range",
+        "label": "Hover Strength",
+        "default": 2,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "inertia": {
+        "type": "range",
+        "label": "Inertia",
+        "default": 0.05,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "bloom": {
+        "type": "range",
+        "label": "Bloom",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "suspendWhenOffscreen": {
+        "type": "boolean",
+        "label": "Suspend When Offscreen",
+        "default": false
+      },
+      "timeScale": {
+        "type": "range",
+        "label": "Time Scale",
+        "default": 0.5,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      }
+    }
+  },
+  "PrismaticBurst": {
+    "defaults": {
+      "intensity": 2,
+      "speed": 0.5,
+      "animationType": "rotate3d",
+      "distort": 0,
+      "paused": false,
+      "offset": "{ x: 0, y: 0 }",
+      "hoverDampness": 0,
+      "mixBlendMode": "lighten"
+    },
+    "controls": {
+      "intensity": {
+        "type": "range",
+        "label": "强度",
+        "default": 2,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 0.5,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "animationType": {
+        "type": "select",
+        "label": "Animation Type",
+        "default": "rotate3d",
+        "options": [
+          "rotate",
+          "rotate3d",
+          "none"
+        ]
+      },
+      "distort": {
+        "type": "range",
+        "label": "Distort",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "paused": {
+        "type": "boolean",
+        "label": "暂停",
+        "default": false
+      },
+      "offset": {
+        "type": "text",
+        "label": "Offset",
+        "default": "{ x: 0, y: 0 }"
+      },
+      "hoverDampness": {
+        "type": "range",
+        "label": "Hover Dampness",
+        "default": 0,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "mixBlendMode": {
+        "type": "text",
+        "label": "混合模式",
+        "default": "lighten"
+      }
+    }
+  },
+  "Radar": {
+    "defaults": {
+      "speed": 1.0,
+      "scale": 0.5,
+      "ringCount": 10.0,
+      "spokeCount": 10.0,
+      "ringThickness": 0.05,
+      "spokeThickness": 0.01,
+      "sweepSpeed": 1.0,
+      "sweepWidth": 2.0,
+      "sweepLobes": 1.0,
+      "color": "#9f29ff",
+      "backgroundColor": "#000000",
+      "falloff": 2.0,
+      "brightness": 1.0,
+      "enableMouseInteraction": true,
+      "mouseInfluence": 0.1
+    },
+    "controls": {
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 1.0,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "scale": {
+        "type": "range",
+        "label": "缩放",
+        "default": 0.5,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "ringCount": {
+        "type": "range",
+        "label": "Ring Count",
+        "default": 10.0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "spokeCount": {
+        "type": "range",
+        "label": "Spoke Count",
+        "default": 10.0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "ringThickness": {
+        "type": "range",
+        "label": "Ring Thickness",
+        "default": 0.05,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "spokeThickness": {
+        "type": "range",
+        "label": "Spoke Thickness",
+        "default": 0.01,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "sweepSpeed": {
+        "type": "range",
+        "label": "Sweep Speed",
+        "default": 1.0,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "sweepWidth": {
+        "type": "range",
+        "label": "Sweep Width",
+        "default": 2.0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "sweepLobes": {
+        "type": "range",
+        "label": "Sweep Lobes",
+        "default": 1.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "color": {
+        "type": "color",
+        "label": "颜色",
+        "default": "#9f29ff"
+      },
+      "backgroundColor": {
+        "type": "color",
+        "label": "背景色",
+        "default": "#000000"
+      },
+      "falloff": {
+        "type": "range",
+        "label": "Falloff",
+        "default": 2.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "brightness": {
+        "type": "range",
+        "label": "Brightness",
+        "default": 1.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "enableMouseInteraction": {
+        "type": "boolean",
+        "label": "Enable Mouse Interaction",
+        "default": true
+      },
+      "mouseInfluence": {
+        "type": "range",
+        "label": "Mouse Influence",
+        "default": 0.1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      }
+    }
+  },
+  "RippleGrid": {
+    "defaults": {
+      "enableRainbow": false,
+      "gridColor": "#ffffff",
+      "rippleIntensity": 0.05,
+      "gridSize": 10.0,
+      "gridThickness": 15.0,
+      "fadeDistance": 1.5,
+      "vignetteStrength": 2.0,
+      "glowIntensity": 0.1,
+      "opacity": 1.0,
+      "gridRotation": 0,
+      "mouseInteraction": true,
+      "mouseInteractionRadius": 1
+    },
+    "controls": {
+      "enableRainbow": {
+        "type": "boolean",
+        "label": "Enable Rainbow",
+        "default": false
+      },
+      "gridColor": {
+        "type": "color",
+        "label": "网格颜色",
+        "default": "#ffffff"
+      },
+      "rippleIntensity": {
+        "type": "range",
+        "label": "涟漪强度",
+        "default": 0.05,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "gridSize": {
+        "type": "range",
+        "label": "网格大小",
+        "default": 10.0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "gridThickness": {
+        "type": "range",
+        "label": "Grid Thickness",
+        "default": 15.0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "fadeDistance": {
+        "type": "range",
+        "label": "Fade Distance",
+        "default": 1.5,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "vignetteStrength": {
+        "type": "range",
+        "label": "Vignette Strength",
+        "default": 2.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "glowIntensity": {
+        "type": "range",
+        "label": "Glow Intensity",
+        "default": 0.1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "opacity": {
+        "type": "range",
+        "label": "不透明度",
+        "default": 1.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "gridRotation": {
+        "type": "range",
+        "label": "Grid Rotation",
+        "default": 0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "mouseInteraction": {
+        "type": "boolean",
+        "label": "鼠标交互",
+        "default": true
+      },
+      "mouseInteractionRadius": {
+        "type": "range",
+        "label": "Mouse Interaction Radius",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      }
+    }
+  },
+  "ShapeGrid": {
+    "defaults": {
+      "direction": "right",
+      "speed": 1,
+      "borderColor": "#999",
+      "squareSize": 40,
+      "hoverFillColor": "#222",
+      "shape": "square",
+      "hoverTrailAmount": 0
+    },
+    "controls": {
+      "direction": {
+        "type": "select",
+        "label": "方向",
+        "default": "right",
+        "options": [
+          "forward",
+          "reverse",
+          "pingpong"
+        ]
+      },
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 1,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "borderColor": {
+        "type": "text",
+        "label": "Border Color",
+        "default": "#999"
+      },
+      "squareSize": {
+        "type": "range",
+        "label": "方块大小",
+        "default": 40,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "hoverFillColor": {
+        "type": "text",
+        "label": "Hover Fill Color",
+        "default": "#222"
+      },
+      "shape": {
+        "type": "select",
+        "label": "Shape",
+        "default": "square",
+        "options": [
+          "square",
+          "circle"
+        ]
+      },
+      "hoverTrailAmount": {
+        "type": "range",
+        "label": "Hover Trail Amount",
+        "default": 0,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      }
+    }
+  },
+  "SideRays": {
+    "defaults": {
+      "speed": 2.5,
+      "rayColor1": "#EAB308",
+      "rayColor2": "#96c8ff",
+      "intensity": 2,
+      "spread": 2,
+      "origin": "top-right",
+      "tilt": 0,
+      "saturation": 1.5,
+      "blend": 0.75,
+      "falloff": 2.0,
+      "opacity": 1.0,
+      "className": ""
+    },
+    "controls": {
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 2.5,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "rayColor1": {
+        "type": "color",
+        "label": "Ray Color1",
+        "default": "#EAB308"
+      },
+      "rayColor2": {
+        "type": "color",
+        "label": "Ray Color2",
+        "default": "#96c8ff"
+      },
+      "intensity": {
+        "type": "range",
+        "label": "强度",
+        "default": 2,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "spread": {
+        "type": "range",
+        "label": "Spread",
+        "default": 2,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "origin": {
+        "type": "select",
+        "label": "Origin",
+        "default": "top-right",
+        "options": [
+          "top-left",
+          "top-right",
+          "bottom-left",
+          "bottom-right"
+        ]
+      },
+      "tilt": {
+        "type": "range",
+        "label": "Tilt",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "saturation": {
+        "type": "range",
+        "label": "Saturation",
+        "default": 1.5,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "blend": {
+        "type": "range",
+        "label": "混合",
+        "default": 0.75,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "falloff": {
+        "type": "range",
+        "label": "Falloff",
+        "default": 2.0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "opacity": {
+        "type": "range",
+        "label": "不透明度",
+        "default": 1.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "className": {
+        "type": "text",
+        "label": "Class Name",
+        "default": ""
+      }
+    }
+  },
+  "Silk": {
+    "defaults": {
+      "speed": 5,
+      "scale": 1,
+      "color": "#7B7481",
+      "noiseIntensity": 1.5,
+      "rotation": 0
+    },
+    "controls": {
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 5,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "scale": {
+        "type": "range",
+        "label": "缩放",
+        "default": 1,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "color": {
+        "type": "color",
+        "label": "颜色",
+        "default": "#7B7481"
+      },
+      "noiseIntensity": {
+        "type": "range",
+        "label": "Noise Intensity",
+        "default": 1.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "rotation": {
+        "type": "range",
+        "label": "旋转",
+        "default": 0,
+        "min": -180,
+        "max": 180,
+        "step": 1
+      }
+    }
+  },
+  "SoftAurora": {
+    "defaults": {
+      "speed": 0.6,
+      "scale": 1.5,
+      "brightness": 1.0,
+      "color1": "#f7f7f7",
+      "color2": "#e100ff",
+      "noiseFrequency": 2.5,
+      "noiseAmplitude": 1.0,
+      "bandHeight": 0.5,
+      "bandSpread": 1.0,
+      "octaveDecay": 0.1,
+      "layerOffset": 0,
+      "colorSpeed": 1.0,
+      "enableMouseInteraction": true,
+      "mouseInfluence": 0.25
+    },
+    "controls": {
+      "speed": {
+        "type": "range",
+        "label": "速度",
+        "default": 0.6,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "scale": {
+        "type": "range",
+        "label": "缩放",
+        "default": 1.5,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "brightness": {
+        "type": "range",
+        "label": "Brightness",
+        "default": 1.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "color1": {
+        "type": "color",
+        "label": "Color1",
+        "default": "#f7f7f7"
+      },
+      "color2": {
+        "type": "color",
+        "label": "Color2",
+        "default": "#e100ff"
+      },
+      "noiseFrequency": {
+        "type": "range",
+        "label": "Noise Frequency",
+        "default": 2.5,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "noiseAmplitude": {
+        "type": "range",
+        "label": "Noise Amplitude",
+        "default": 1.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "bandHeight": {
+        "type": "range",
+        "label": "Band Height",
+        "default": 0.5,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "bandSpread": {
+        "type": "range",
+        "label": "Band Spread",
+        "default": 1.0,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "octaveDecay": {
+        "type": "range",
+        "label": "Octave Decay",
+        "default": 0.1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "layerOffset": {
+        "type": "range",
+        "label": "Layer Offset",
+        "default": 0,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "colorSpeed": {
+        "type": "range",
+        "label": "Color Speed",
+        "default": 1.0,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "enableMouseInteraction": {
+        "type": "boolean",
+        "label": "Enable Mouse Interaction",
+        "default": true
+      },
+      "mouseInfluence": {
+        "type": "range",
+        "label": "Mouse Influence",
+        "default": 0.25,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      }
+    }
+  },
+  "Threads": {
+    "defaults": {
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "amplitude": 1,
+      "distance": 0,
+      "enableMouseInteraction": false
+    },
+    "controls": {
+      "color": {
+        "type": "text",
+        "label": "颜色",
+        "default": [
+          1,
+          1,
+          1
+        ]
+      },
+      "amplitude": {
+        "type": "range",
+        "label": "振幅",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "distance": {
+        "type": "range",
+        "label": "Distance",
+        "default": 0,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.05
+      },
+      "enableMouseInteraction": {
+        "type": "boolean",
+        "label": "Enable Mouse Interaction",
+        "default": false
+      }
+    }
+  },
+  "Waves": {
+    "defaults": {
+      "lineColor": "black",
+      "backgroundColor": "transparent",
+      "waveSpeedX": 0.0125,
+      "waveSpeedY": 0.005,
+      "waveAmpX": 32,
+      "waveAmpY": 16,
+      "xGap": 10,
+      "yGap": 32,
+      "friction": 0.925,
+      "tension": 0.005,
+      "maxCursorMove": 100,
+      "style": "{}",
+      "className": ""
+    },
+    "controls": {
+      "lineColor": {
+        "type": "text",
+        "label": "线条颜色",
+        "default": "black"
+      },
+      "backgroundColor": {
+        "type": "text",
+        "label": "背景色",
+        "default": "transparent"
+      },
+      "waveSpeedX": {
+        "type": "range",
+        "label": "X 波速",
+        "default": 0.0125,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "waveSpeedY": {
+        "type": "range",
+        "label": "Wave Speed Y",
+        "default": 0.005,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      "waveAmpX": {
+        "type": "range",
+        "label": "X 波幅",
+        "default": 32,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "waveAmpY": {
+        "type": "range",
+        "label": "Wave Amp Y",
+        "default": 16,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      "xGap": {
+        "type": "range",
+        "label": "X Gap",
+        "default": 10,
+        "min": 0,
+        "max": 20,
+        "step": 0.1
+      },
+      "yGap": {
+        "type": "range",
+        "label": "Y Gap",
+        "default": 32,
+        "min": 0,
+        "max": 64,
+        "step": 0.1
+      },
+      "friction": {
+        "type": "range",
+        "label": "Friction",
+        "default": 0.925,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "tension": {
+        "type": "range",
+        "label": "Tension",
+        "default": 0.005,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      "maxCursorMove": {
+        "type": "range",
+        "label": "Max Cursor Move",
+        "default": 100,
+        "min": 0,
+        "max": 200,
+        "step": 0.1
+      },
+      "style": {
+        "type": "text",
+        "label": "Style",
+        "default": "{}"
+      },
+      "className": {
+        "type": "text",
+        "label": "Class Name",
+        "default": ""
+      }
+    }
+  }
+}
