@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 const ITEMS = [
   { to: '/pages/motionsites', label: 'motionsites.ai', cls: 'cyan' },
+  { to: '/pages/uiverse', label: 'Uiverse', cls: 'violet' },
   { to: '/pages/aura', label: 'Aura', cls: 'amber' },
   { to: '/pages/lithos', label: 'Lithos', cls: 'emerald' },
 ];
@@ -10,6 +11,10 @@ const TONE = {
   cyan: {
     active: 'bg-cyan-400/20 text-cyan-200',
     idle: 'text-cyan-200/70 hover:bg-white/5 hover:text-cyan-100',
+  },
+  violet: {
+    active: 'bg-violet-400/20 text-violet-200',
+    idle: 'text-violet-200/70 hover:bg-white/5 hover:text-violet-100',
   },
   amber: {
     active: 'bg-amber-400/20 text-amber-200',

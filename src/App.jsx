@@ -9,6 +9,7 @@ import TextureLab from './tools/TextureLab';
 import Aura from './pages/Aura';
 import Lithos from './pages/Lithos';
 import MotionsitesGallery from './pages/MotionsitesGallery';
+import UiverseGallery from './pages/UiverseGallery';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
             <Route path="/pages/aura" element={<Aura />} />
             <Route path="/pages/lithos" element={<Lithos />} />
             <Route path="/pages/motionsites" element={<MotionsitesGallery />} />
+            <Route path="/pages/uiverse" element={<UiverseGallery />} />
           </Routes>
         </main>
       </div>
