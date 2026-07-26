@@ -28,6 +28,17 @@ export default function TopAnimeNav() {
           </Link>
         );
       })}
+      <span className="mx-1 h-5 w-px bg-white/10" />
+      <Link
+        to="/pages/aura"
+        className={`rounded-lg px-3 py-1.5 text-sm transition-colors ${
+          cur === '/pages/aura'
+            ? 'bg-amber-400/20 text-amber-200'
+            : 'text-amber-200/70 hover:bg-white/5 hover:text-amber-100'
+        }`}
+      >
+        Aura 落地页
+      </Link>
     </div>
   );
 }
