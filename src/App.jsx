@@ -6,10 +6,8 @@ import ComponentPage from './components/ComponentPage';
 import BackgroundStudio from './tools/BackgroundStudio';
 import ShapeMagic from './tools/ShapeMagic';
 import TextureLab from './tools/TextureLab';
-import Anime1 from './pages/Anime1';
-import Anime2 from './pages/Anime2';
-import Anime3 from './pages/Anime3';
 import Aura from './pages/Aura';
+import Lithos from './pages/Lithos';
 
 export default function App() {
   return (
@@ -24,10 +22,8 @@ export default function App() {
             <Route path="/tools/background-studio" element={<BackgroundStudio />} />
             <Route path="/tools/shape-magic" element={<ShapeMagic />} />
             <Route path="/tools/texture-lab" element={<TextureLab />} />
-            <Route path="/anime/1" element={<Anime1 />} />
-            <Route path="/anime/2" element={<Anime2 />} />
-            <Route path="/anime/3" element={<Anime3 />} />
             <Route path="/pages/aura" element={<Aura />} />
+            <Route path="/pages/lithos" element={<Lithos />} />
           </Routes>
         </main>
       </div>
