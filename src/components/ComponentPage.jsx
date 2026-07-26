@@ -3,13 +3,34 @@ import { COMPONENTS_BY_SLUG } from '../data/components';
 import { TEXT_ANIMATION_DEMOS } from '../demos/TextAnimations';
 import { ANIMATION_DEMOS } from '../demos/Animations';
 import { COMPONENT_DEMOS } from '../demos/Components';
+import { BG_CONFIG, DEFAULT_PARAMS } from '../tools/bgConfig';
 import ErrorBoundary from './ErrorBoundary';
+
+// 把背景工作室的组件注册到路由演示映射里
+const BACKGROUND_DEMOS = Object.fromEntries(
+  BG_CONFIG.map((bg) => [
+    bg.key,
+    function BackgroundDemo() {
+      const BgComp = bg.comp;
+      const props = {};
+      for (const [generic, propName] of Object.entries(bg.map)) {
+        if (propName) props[propName] = DEFAULT_PARAMS[generic];
+      }
+      return (
+        <div className="relative h-full min-h-[420px] overflow-hidden rounded-xl">
+          <BgComp {...props} />
+        </div>
+      );
+    },
+  ])
+);
 
 // 按分类分发对应的演示映射
 const DEMO_MAPS = {
   'text-animations': TEXT_ANIMATION_DEMOS,
   'animations': ANIMATION_DEMOS,
   'components': COMPONENT_DEMOS,
+  'backgrounds': BACKGROUND_DEMOS,
 };
 
 export default function ComponentPage() {
