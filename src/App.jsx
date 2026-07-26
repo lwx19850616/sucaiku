@@ -8,6 +8,7 @@ import ShapeMagic from './tools/ShapeMagic';
 import TextureLab from './tools/TextureLab';
 import Aura from './pages/Aura';
 import Lithos from './pages/Lithos';
+import MotionsitesGallery from './pages/MotionsitesGallery';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="/tools/texture-lab" element={<TextureLab />} />
             <Route path="/pages/aura" element={<Aura />} />
             <Route path="/pages/lithos" element={<Lithos />} />
+            <Route path="/pages/motionsites" element={<MotionsitesGallery />} />
           </Routes>
         </main>
       </div>
