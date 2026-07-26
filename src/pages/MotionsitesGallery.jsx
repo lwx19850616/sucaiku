@@ -2,7 +2,69 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, X, ExternalLink, Copy, Check, ChevronLeft, ChevronRight, Layers, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import Hls from 'hls.js';
 import prompts from '../data/motionsitesPrompts.json';
+
+// 加载失败时的占位
+function MediaPlaceholder({ className = '' }) {
+  return (
+    <div className={`flex h-full w-full items-center justify-center bg-gradient-to-br from-white/5 to-transparent ${className}`}>
+      <Layers className="h-8 w-8 text-white/20" />
+    </div>
+  );
+}
+
+// 统一媒体渲染：支持 m3u8(hls.js)、普通视频、图片，失败自动兜底占位
+function PreviewMedia({ url, className = '' }) {
+  const [failed, setFailed] = useState(false);
+  const videoRef = useRef(null);
+  const isM3u8 = /\.m3u8(\?|$)/i.test(url || '');
+
+  useEffect(() => {
+    setFailed(false);
+    if (!isM3u8 || !url || !videoRef.current) return;
+    const video = videoRef.current;
+    let hls;
+    if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = url;
+    } else if (Hls.isSupported()) {
+      hls = new Hls({ maxBufferLength: 8, capLevelToPlayerSize: true });
+      hls.loadSource(url);
+      hls.attachMedia(video);
+    }
+    return () => {
+      if (hls) hls.destroy();
+    };
+  }, [url, isM3u8]);
+
+  if (!url || failed) return <MediaPlaceholder className={className} />;
+  if (isM3u8) {
+    return <video ref={videoRef} autoPlay loop muted playsInline className={className} />;
+  }
+  if (isVideoUrl(url)) {
+    return (
+      <video
+        src={url}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        className={className}
+        onError={() => setFailed(true)}
+      />
+    );
+  }
+  return (
+    <img
+      src={url}
+      alt=""
+      className={className}
+      loading="lazy"
+      onError={() => setFailed(true)}
+    />
+  );
+}
 
 const ITEMS_PER_PAGE = 24;
 
@@ -77,32 +139,9 @@ function PromptModal({ item, onClose }) {
 
         {/* Preview */}
         <div className="relative flex min-h-[220px] flex-1 items-center justify-center overflow-hidden bg-black/40 md:min-h-[540px]">
-          {previewUrl ? (
-            isVideoUrl(previewUrl) ? (
-              <video
-                src={previewUrl}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                className="h-full w-full object-contain"
-              />
-            ) : (
-              <img
-                src={previewUrl}
-                alt={item.title}
-                className="h-full w-full object-contain"
-                loading="lazy"
-              />
-            )
-          ) : (
-            <div className="flex h-full w-full flex-col items-center justify-center gap-4 bg-gradient-to-br from-white/5 to-transparent p-8 text-center">
-              <div className="flex h-20 w-20 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
-                <Layers className="h-8 w-8 text-white/30" />
-              </div>
-              <p className="text-sm text-white/40">No preview available</p>
-            </div>
+          <PreviewMedia url={previewUrl} className="h-full w-full object-contain" />
+          {!previewUrl && (
+            <span className="pointer-events-none absolute bottom-4 text-xs text-white/40">No preview available</span>
           )}
           {item.replicated && (
             <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-3 py-1.5 text-xs font-semibold text-emerald-200 backdrop-blur-md">
@@ -276,30 +315,10 @@ export default function MotionsitesGallery() {
                   className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] text-left transition-colors hover:border-white/20 hover:bg-white/[0.05]"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-black/30">
-                    {previewUrl ? (
-                      isVideoUrl(previewUrl) ? (
-                        <video
-                          src={previewUrl}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          preload="metadata"
-                          className="h-full w-full object-cover opacity-90 transition-opacity group-hover:opacity-100"
-                        />
-                      ) : (
-                        <img
-                          src={previewUrl}
-                          alt={item.title}
-                          className="h-full w-full object-cover opacity-90 transition-opacity group-hover:opacity-100"
-                          loading="lazy"
-                        />
-                      )
-                    ) : (
-                      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-white/5 to-transparent">
-                        <Layers className="h-8 w-8 text-white/20" />
-                      </div>
-                    )}
+                    <PreviewMedia
+                      url={previewUrl}
+                      className="h-full w-full object-cover opacity-90 transition-opacity group-hover:opacity-100"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                     {item.replicated && (
                       <div className="absolute left-2.5 top-2.5 flex items-center gap-1 rounded-full bg-emerald-500/20 px-2 py-1 text-[10px] font-semibold text-emerald-200 backdrop-blur-md">
