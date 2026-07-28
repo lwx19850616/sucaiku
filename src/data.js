@@ -129,7 +129,7 @@ export const showcase = [
     id: 'components',
     title: '组件动画',
     en: 'Components',
-    desc: '磁性按钮、悬停微交互、计数器与打字机等动效现场演示。',
+    desc: 'React Bits 全部 31 个动画组件，逐个实时预览：Dock、Aurora、Particles、Magnet、Tilted Card……',
     accent: '#f472b6',
     preview: 'components',
   },

@@ -4,6 +4,7 @@ import Reveal from './Reveal.jsx'
 import { showcase } from '../data.js'
 import Starfield from './Starfield.jsx'
 import { TextBitsGallery } from './TextBits.jsx'
+import AnimBitsGallery from './AnimBits.jsx'
 
 /* ============================================================
    缩略图（卡片上的迷你预览）
@@ -75,110 +76,8 @@ function Thumb({ type, accent }) {
    ============================================================ */
 
 /* ============================================================
-   2) 组件动画演示
+   2) 组件动画演示（React Bits 31 个 Animations 组件画廊）
    ============================================================ */
-function MagneticButton() {
-  const ref = useRef(null)
-  const move = (e) => {
-    const r = ref.current.getBoundingClientRect()
-    const x = e.clientX - r.left - r.width / 2
-    const y = e.clientY - r.top - r.height / 2
-    ref.current.style.transform = `translate(${x * 0.3}px, ${y * 0.4}px)`
-  }
-  const reset = () => {
-    if (ref.current) ref.current.style.transform = 'translate(0,0)'
-  }
-  return (
-    <button
-      ref={ref}
-      onMouseMove={move}
-      onMouseLeave={reset}
-      className="rounded-full bg-brand px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-brand/30 transition-transform duration-200 ease-out"
-    >
-      把光标靠近我 ✦
-    </button>
-  )
-}
-
-function Counter() {
-  const [n, setN] = useState(0)
-  useEffect(() => {
-    let raf
-    const dur = 1400
-    const start = performance.now()
-    const tick = (now) => {
-      const p = Math.min(1, (now - start) / dur)
-      const eased = 1 - Math.pow(1 - p, 3)
-      setN(Math.floor(eased * 128))
-      if (p < 1) raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [])
-  return (
-    <div className="font-mono text-5xl font-bold text-foreground">
-      {n}
-      <span className="ml-1 text-2xl text-brand">+</span>
-    </div>
-  )
-}
-
-function Typewriter() {
-  const full = '用动效讲述产品的故事。'
-  const [t, setT] = useState('')
-  useEffect(() => {
-    let i = 0
-    const id = setInterval(() => {
-      i++
-      setT(full.slice(0, i))
-      if (i >= full.length) clearInterval(id)
-    }, 90)
-    return () => clearInterval(id)
-  }, [])
-  return (
-    <p className="text-lg text-foreground">
-      {t}
-      <span className="ml-0.5 animate-pulse text-brand">|</span>
-    </p>
-  )
-}
-
-function ComponentsDemo() {
-  return (
-    <div className="grid gap-6 sm:grid-cols-2">
-      <div className="glass flex flex-col items-center justify-center gap-4 rounded-2xl p-8">
-        <span className="text-xs uppercase tracking-widest text-muted-foreground">磁性按钮</span>
-        <MagneticButton />
-      </div>
-
-      <div className="glass flex flex-col items-center justify-center gap-2 rounded-2xl p-8">
-        <span className="mb-2 text-xs uppercase tracking-widest text-muted-foreground">数字滚动</span>
-        <Counter />
-        <span className="text-xs text-muted-foreground">次交互 · 平滑递增</span>
-      </div>
-
-      <div className="glass flex flex-col items-center justify-center gap-3 rounded-2xl p-8">
-        <span className="text-xs uppercase tracking-widest text-muted-foreground">打字机</span>
-        <Typewriter />
-      </div>
-
-      <div className="glass group relative flex flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl p-8 transition-transform duration-300 hover:-translate-y-1.5">
-        <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-brand/20 blur-2xl transition-opacity duration-300 group-hover:opacity-100 opacity-50" />
-        <span className="text-xs uppercase tracking-widest text-muted-foreground">悬停浮起卡片</span>
-        <div className="flex items-center gap-2 text-sm">
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
-          </span>
-          状态：在线
-        </div>
-        <p className="text-center text-xs text-muted-foreground">
-          玻璃拟态 + 悬停微光，细腻而不张扬。
-        </p>
-      </div>
-    </div>
-  )
-}
 
 /* ============================================================
    3) 背景特效演示（可切换）
@@ -273,7 +172,7 @@ function BackgroundsDemo() {
    ============================================================ */
 const detailMap = {
   fonts: { title: '文字组件', en: 'React Bits · Text', Comp: TextBitsGallery },
-  components: { title: '组件动画', en: 'Components', Comp: ComponentsDemo },
+  components: { title: '组件动画', en: 'Animations', Comp: AnimBitsGallery },
   backgrounds: { title: '背景特效', en: 'Backgrounds', Comp: BackgroundsDemo },
 }
 
