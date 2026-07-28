@@ -157,6 +157,33 @@
   }
 }
 
+/* 故障文字 RGB 错位 */
+@keyframes glitch-x {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+}
+@keyframes glitch-y {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(1px, -2px); }
+  50% { transform: translate(-2px, 1px); }
+  75% { transform: translate(1px, 2px); }
+}
+
+/* 横向滚动字幕 */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* 高光扫过 */
+@keyframes shiny-sweep {
+  from { background-position: 200% center; }
+  to { background-position: -200% center; }
+}
+
 /* 尊重「减少动态效果」偏好 */
 @media (prefers-reduced-motion: reduce) {
   *,

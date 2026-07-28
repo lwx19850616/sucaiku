@@ -119,9 +119,9 @@ export const projects = [
 export const showcase = [
   {
     id: 'fonts',
-    title: '字体展示',
-    en: 'Typography',
-    desc: '不同字族、字重与排版的实时预览，感受文字的呼吸。',
+    title: '文字组件',
+    en: 'Text',
+    desc: 'React Bits 全部 23 个文字动效组件，逐个实时预览：故障、解密、环形、渐变、压力感应……',
     accent: '#a78bfa',
     preview: 'fonts',
   },

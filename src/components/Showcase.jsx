@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Reveal from './Reveal.jsx'
 import { showcase } from '../data.js'
 import Starfield from './Starfield.jsx'
+import { TextBitsGallery } from './TextBits.jsx'
 
 /* ============================================================
    缩略图（卡片上的迷你预览）
@@ -70,56 +71,8 @@ function Thumb({ type, accent }) {
 }
 
 /* ============================================================
-   1) 字体展示演示
+   1) 文字组件演示（React Bits 23 个 Text 组件画廊）
    ============================================================ */
-const fontSpecimens = [
-  { family: "'Inter', sans-serif", label: 'Inter', note: '现代无衬线 · 正文 / UI' },
-  { family: "'Space Grotesk', sans-serif", label: 'Space Grotesk', note: '几何感 · 标题' },
-  { family: "'Playfair Display', serif", label: 'Playfair Display', note: '优雅衬线 · 展示' },
-  { family: "'JetBrains Mono', monospace", label: 'JetBrains Mono', note: '等宽 · 代码' },
-]
-
-function FontsDemo() {
-  return (
-    <div className="space-y-8">
-      {fontSpecimens.map((f) => (
-        <div key={f.label} className="border-b border-border/60 pb-6">
-          <div className="mb-3 flex items-baseline justify-between">
-            <span className="text-sm font-semibold text-brand">{f.label}</span>
-            <span className="text-xs text-muted-foreground">{f.note}</span>
-          </div>
-          <p className="text-5xl font-extrabold leading-tight sm:text-6xl" style={{ fontFamily: f.family }}>
-            文字的呼吸 The quick brown fox
-          </p>
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground" style={{ fontFamily: f.family }}>
-            轻量 400 与厚重 800 的对比，让层次自然浮现。好的排版不需要装饰，本身即是设计。
-          </p>
-          <div className="mt-2 flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted-foreground" style={{ fontFamily: f.family }}>
-            <span className="font-light">Light 300</span>
-            <span className="font-normal">Regular 400</span>
-            <span className="font-medium">Medium 500</span>
-            <span className="font-bold">Bold 700</span>
-            <span className="font-black">Black 900</span>
-          </div>
-        </div>
-      ))}
-
-      {/* 渐变文字 + 字间距演示 */}
-      <div>
-        <span className="text-sm font-semibold text-brand">渐变 / 字间距</span>
-        <p className="mt-3 text-4xl font-black text-gradient-brand sm:text-5xl">
-          GRADIENT TYPE
-        </p>
-        <p
-          className="mt-3 text-lg text-muted-foreground"
-          style={{ letterSpacing: '0.35em', textTransform: 'uppercase' }}
-        >
-          letter · spacing · rhythm
-        </p>
-      </div>
-    </div>
-  )
-}
 
 /* ============================================================
    2) 组件动画演示
@@ -319,7 +272,7 @@ function BackgroundsDemo() {
    全屏演示视图
    ============================================================ */
 const detailMap = {
-  fonts: { title: '字体展示', en: 'Typography', Comp: FontsDemo },
+  fonts: { title: '文字组件', en: 'React Bits · Text', Comp: TextBitsGallery },
   components: { title: '组件动画', en: 'Components', Comp: ComponentsDemo },
   backgrounds: { title: '背景特效', en: 'Backgrounds', Comp: BackgroundsDemo },
 }
@@ -337,7 +290,7 @@ function DetailView({ id, onClose }) {
       onClick={onClose}
     >
       <motion.div
-        className="mx-auto my-10 max-w-4xl rounded-3xl border border-border bg-card/80 p-7 shadow-2xl sm:p-10"
+        className="mx-auto my-10 max-w-5xl rounded-3xl border border-border bg-card/80 p-7 shadow-2xl sm:p-10"
         initial={{ y: 30, scale: 0.97, opacity: 0 }}
         animate={{ y: 0, scale: 1, opacity: 1 }}
         exit={{ y: 20, scale: 0.98, opacity: 0 }}
