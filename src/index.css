@@ -146,6 +146,17 @@
   }
 }
 
+/* 缩略图星点闪烁 */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 /* 尊重「减少动态效果」偏好 */
 @media (prefers-reduced-motion: reduce) {
   *,

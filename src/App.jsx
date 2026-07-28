@@ -8,6 +8,7 @@ import Hero from './components/Hero.jsx'
 import Skills from './components/Skills.jsx'
 import Experience from './components/Experience.jsx'
 import Projects from './components/Projects.jsx'
+import Showcase from './components/Showcase.jsx'
 import Contact from './components/Contact.jsx'
 
 function ScrollProgress() {
@@ -43,6 +44,7 @@ export default function App() {
           <Skills />
           <Experience />
           <Projects />
+          <Showcase />
           <Contact />
         </main>
       </div>

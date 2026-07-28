@@ -19,6 +19,7 @@ export const nav = [
   { id: 'skills', label: '技术栈' },
   { id: 'experience', label: '经历' },
   { id: 'projects', label: '作品' },
+  { id: 'showcase', label: '演示' },
   { id: 'contact', label: '联系' },
 ];
 
@@ -110,5 +111,34 @@ export const projects = [
     desc: '实时项目协作看板，任务流转一目了然。',
     tags: ['React', 'DnD', 'Express'],
     link: '#',
+  },
+];
+
+// 演示实验室（点击预览卡片进入全屏演示）
+// preview 决定卡片缩略图样式；详情区由 Showcase.jsx 按 id 渲染
+export const showcase = [
+  {
+    id: 'fonts',
+    title: '字体展示',
+    en: 'Typography',
+    desc: '不同字族、字重与排版的实时预览，感受文字的呼吸。',
+    accent: '#a78bfa',
+    preview: 'fonts',
+  },
+  {
+    id: 'components',
+    title: '组件动画',
+    en: 'Components',
+    desc: '磁性按钮、悬停微交互、计数器与打字机等动效现场演示。',
+    accent: '#f472b6',
+    preview: 'components',
+  },
+  {
+    id: 'backgrounds',
+    title: '背景特效',
+    en: 'Backgrounds',
+    desc: '星空、星云、网格与极光等多种太空背景，随手切换。',
+    accent: '#38bdf8',
+    preview: 'backgrounds',
   },
 ];
