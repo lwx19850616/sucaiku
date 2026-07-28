@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   主题变量（明暗双主题 + system 跟随系统）
+   颜色采用 HSL 通道值，配合 Tailwind 的 hsl(var(--x)) 使用
+   ============================================================ */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 30% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 30% 12%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --primary: 222 47% 11%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 222 47% 11%;
+    --brand: 22 100% 52%;
+    --ring: 22 100% 52%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.5%;
+    --foreground: 0 0% 96%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 96%;
+    --muted: 240 6% 12%;
+    --muted-foreground: 240 5% 60%;
+    --border: 240 6% 14%;
+    --input: 240 6% 14%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 10% 4%;
+    --secondary: 240 6% 12%;
+    --secondary-foreground: 0 0% 96%;
+    --accent: 240 6% 14%;
+    --accent-foreground: 0 0% 96%;
+    --brand: 22 100% 58%;
+    --ring: 22 100% 58%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: hsl(var(--brand) / 0.28);
+    color: hsl(var(--foreground));
+  }
+
+  /* 自定义滚动条 */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+    background-clip: content-box;
+  }
+}
+
+/* ============================================================
+   复用工具类
+   ============================================================ */
+@layer components {
+  /* 细网格纹理（用于背景叠加层） */
+  .bg-grid {
+    background-image: linear-gradient(
+        to right,
+        hsl(var(--muted-foreground) / 0.08) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        hsl(var(--muted-foreground) / 0.08) 1px,
+        transparent 1px
+      );
+    background-size: 56px 56px;
+  }
+
+  /* 品牌渐变文字 */
+  .text-gradient-brand {
+    background-image: linear-gradient(
+      120deg,
+      hsl(var(--brand)),
+      #fb7185 45%,
+      hsl(var(--brand))
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-pan 6s ease infinite;
+  }
+
+  /* 玻璃拟态卡片 */
+  .glass {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid hsl(var(--border) / 0.8);
+  }
+}
+
+/* 显式关键帧（确保始终可用，不依赖 Tailwind 工具类是否被引用） */
+@keyframes gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes grid-drift {
+  to {
+    background-position: 56px 56px;
+  }
+}
+
+/* 尊重「减少动态效果」偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
