@@ -1,17 +1,25 @@
+# 官方 GitHub Pages Actions 部署模式：
+# 构建产物上传为 artifact，再由官方 deploy-pages Action 部署。
+# 这种方式能可靠触发 Pages 重建（比直接 push gh-pages 分支更稳定）。
+# 注意：需要在仓库 Settings → Pages → Source 选择 “GitHub Actions”。
 name: Deploy to GitHub Pages
 
-# 仓库的 Pages 源设置为 gh-pages 分支（分支部署模式），
-# 因此本工作流在 push 到 main 时构建并强制推送到 gh-pages。
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,10 +37,18 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
-          enable_jekyll: false
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
