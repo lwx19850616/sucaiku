@@ -38,17 +38,20 @@ export default function Starfield() {
     }
 
     function buildStars() {
-      const count = Math.min(280, Math.floor((w * h) / 6500))
+      // 密度降低，避免“雪片”般的灰白噪点感，更像遥远稀疏的深空星点
+      const count = Math.min(220, Math.floor((w * h) / 9000))
       stars = new Array(count).fill(0).map(() => {
-        const depth = 0.25 + Math.random() * 0.75 // 视差层：近大亮、远小暗
+        const depth = 0.2 + Math.random() * 0.8 // 视差层：近大亮、远小暗
         return {
           x: Math.random() * w,
           y: Math.random() * h,
-          r: 0.4 + Math.random() * 1.3 * depth,
-          baseA: 0.25 + Math.random() * 0.75,
-          tw: 0.4 + Math.random() * 1.6, // 闪烁速度
+          r: 0.35 + Math.random() * 1.1 * depth,
+          baseA: 0.15 + Math.random() * 0.55, // 整体更暗、更冷
+          tw: 0.3 + Math.random() * 1.4, // 闪烁速度
           ph: Math.random() * Math.PI * 2,
           depth,
+          // 少量星点带极淡的蓝/青/品色调，模拟真实恒星光谱
+          tint: Math.random() > 0.82 ? (Math.random() > 0.5 ? '190,220,255' : '255,220,230') : null,
         }
       })
     }
@@ -79,21 +82,23 @@ export default function Starfield() {
       const dark = isDark()
       ctx.clearRect(0, 0, w, h)
 
-      const starColor = dark ? '255,255,255' : '70,85,120'
-      const globalAlphaBase = dark ? 1 : 0.4 // 亮色下星空极淡
+      const starColor = dark ? '255,255,255' : '60,75,110'
+      const globalAlphaBase = dark ? 0.85 : 0.35 // 暗色下也压低一点，避免发灰
 
       for (const s of stars) {
-        const driftX = Math.sin(t * 0.05 + s.ph) * 6 * s.depth
-        const driftY = Math.cos(t * 0.04 + s.ph) * 4 * s.depth
-        const px = s.x + driftX + mouse.x * s.depth * 12
-        const py = s.y + driftY + mouse.y * s.depth * 12
+        const driftX = Math.sin(t * 0.04 + s.ph) * 5 * s.depth
+        const driftY = Math.cos(t * 0.03 + s.ph) * 3 * s.depth
+        const px = s.x + driftX + mouse.x * s.depth * 10
+        const py = s.y + driftY + mouse.y * s.depth * 10
         let a = s.baseA
-        if (!reduceMotion) a *= 0.55 + 0.45 * Math.sin(t * s.tw + s.ph)
+        if (!reduceMotion) a *= 0.5 + 0.5 * Math.sin(t * s.tw + s.ph)
         a *= globalAlphaBase
         if (a <= 0.02) continue
         ctx.beginPath()
         ctx.arc(px, py, s.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(${starColor},${a.toFixed(3)})`
+        // 暗色模式下给少量星点加冷蓝/品红 tint，避免纯白一片显得平
+        const color = dark && s.tint ? s.tint : starColor
+        ctx.fillStyle = `rgba(${color},${a.toFixed(3)})`
         ctx.fill()
       }
 

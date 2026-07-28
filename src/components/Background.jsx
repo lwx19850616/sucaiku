@@ -9,24 +9,37 @@ import Starfield from './Starfield'
 export default function Background() {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
-      {/* 基础对角渐变 */}
-      <div className="absolute inset-0 dark:bg-gradient-to-tl from-black via-zinc-900/60 to-black bg-gradient-to-br from-zinc-100 via-white to-zinc-200" />
+      {/* 1. 基础底色：暗色为极深冷黑，亮色为浅灰白 */}
+      <div className="absolute inset-0 bg-zinc-50 dark:bg-[#050508]" />
 
-      {/* 星空层（核心：还原原站太空星点背景） */}
-      <Starfield />
-
-      {/* 品牌色光晕（太空星云感） */}
-      <div className="absolute -top-40 -left-32 h-[38rem] w-[38rem] rounded-full bg-brand/15 blur-[140px] animate-float" />
+      {/* 2. 深蓝/紫 subtle 星云渐变（还原太空深邃感，不会发灰） */}
       <div
-        className="absolute -bottom-40 -right-24 h-[32rem] w-[32rem] rounded-full bg-brand/10 blur-[140px] animate-float"
-        style={{ animationDelay: '2.5s' }}
+        className="pointer-events-none absolute inset-0 opacity-60 dark:opacity-60"
+        style={{
+          background:
+            'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56, 44, 128, 0.22), transparent), ' +
+            'radial-gradient(ellipse 60% 40% at 80% 60%, rgba(22, 44, 88, 0.18), transparent), ' +
+            'radial-gradient(ellipse 50% 35% at 20% 80%, rgba(88, 32, 64, 0.12), transparent)',
+        }}
       />
 
-      {/* 顶部细光，呼应导航 */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent" />
+      {/* 3. 星空层（核心：还原原站太空星点背景） */}
+      <Starfield />
 
-      {/* 底部渐隐 */}
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
+      {/* 4. 顶部极淡的冷光，呼应导航 */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-400/25 to-transparent" />
+
+      {/* 5. 暗角：让中心内容聚焦，四周更深邃 */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-80 dark:opacity-80"
+        style={{
+          background:
+            'radial-gradient(circle at center, transparent 0%, transparent 50%, rgba(0,0,0,0.55) 100%)',
+        }}
+      />
+
+      {/* 6. 底部渐隐（保证文字清晰） */}
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#050508] to-transparent" />
     </div>
   )
 }
