@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>包材产品目录 · 幻灯片</title>
+<style>
+  :root { --brand: #f97316; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: radial-gradient(circle at 25% 15%, #1c1638, #0a0a12 60%),
+                radial-gradient(circle at 85% 85%, #0e2a3a, transparent 55%);
+    color: #ececf2; overflow: hidden;
+  }
+  .deck { position: relative; height: 100vh; width: 100%; }
+  .slide {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 9vh 9vw;
+    opacity: 0; transform: translateX(48px); transition: opacity .5s ease, transform .5s ease;
+    pointer-events: none; text-align: center;
+  }
+  .slide.active { opacity: 1; transform: none; pointer-events: auto; }
+  .kicker { letter-spacing: .32em; text-transform: uppercase; color: var(--brand); font-size: 13px; margin-bottom: 16px; }
+  h1 { font-size: clamp(30px, 6.5vw, 68px); font-weight: 800; line-height: 1.08; background: linear-gradient(120deg,#fff,#fcd9b6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h2 { font-size: clamp(24px, 4.5vw, 44px); font-weight: 700; margin-bottom: 22px; }
+  p, li { font-size: clamp(15px, 2.2vw, 20px); color: #b7b7c6; line-height: 1.75; }
+  .card { background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: 26px 34px; backdrop-filter: blur(10px); max-width: 780px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,.1); font-size: clamp(14px,2vw,18px); }
+  th { color: var(--brand); font-weight: 600; }
+  td { color: #cfcfdc; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 820px; }
+  .cell { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 20px; }
+  .cell .emoji { font-size: 34px; }
+  .cell .name { font-weight: 700; color: #fff; margin: 8px 0 4px; }
+  .nav-btn { position: absolute; bottom: 26px; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #fff; font-size: 22px; cursor: pointer; transition: .25s; z-index: 5; }
+  .nav-btn:hover { background: var(--brand); border-color: var(--brand); }
+  .prev { right: 92px; } .next { right: 34px; }
+  .dots { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 5; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.25); cursor: pointer; transition: .3s; }
+  .dot.active { background: var(--brand); width: 28px; border-radius: 6px; }
+  .counter { position: absolute; bottom: 32px; left: 34px; font-size: 14px; color: #8a8a9a; z-index: 5; }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+  <section class="slide active">
+    <div class="kicker">Categories</div>
+    <h1>包材产品目录</h1>
+    <p style="margin-top:16px">六大品类，覆盖电商与工业品包装需求</p>
+    <div class="grid" style="margin-top:26px">
+      <div class="cell"><div class="emoji">📦</div><div class="name">纸盒</div><span style="font-size:13px">瓦楞 / 精品</span></div>
+      <div class="cell"><div class="emoji">🗳️</div><div class="name">纸箱</div><span style="font-size:13px">重型 / 物流</span></div>
+      <div class="cell"><div class="emoji">🛍️</div><div class="name">塑料袋</div><span style="font-size:13px">PE / 食品级</span></div>
+      <div class="cell"><div class="emoji">🏷️</div><div class="name">标签</div><span style="font-size:13px">不干胶</span></div>
+      <div class="cell"><div class="emoji">🍶</div><div class="name">瓶罐</div><span style="font-size:13px">玻璃 / 塑料</span></div>
+      <div class="cell"><div class="emoji">🫧</div><div class="name">缓冲</div><span style="font-size:13px">气泡膜</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Pricing</div>
+    <h2>参考报价</h2>
+    <div class="card">
+      <table>
+        <thead><tr><th>产品</th><th>材质</th><th>单价</th></tr></thead>
+        <tbody>
+          <tr><td>快递纸盒</td><td>瓦楞纸</td><td>¥1.20</td></tr>
+          <tr><td>重型纸箱</td><td>牛皮纸</td><td>¥4.50</td></tr>
+          <tr><td>食品塑料袋</td><td>PE</td><td>¥0.30</td></tr>
+          <tr><td>不干胶标签</td><td>铜版纸</td><td>¥0.15</td></tr>
+          <tr><td>精油瓶</td><td>玻璃</td><td>¥2.80</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px;margin-top:10px">* 报价为示例，量大从优，具体以询价为准。</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">How to choose</div>
+    <h2>怎么选分类</h2>
+    <div class="card">
+      <ul style="text-align:left">
+        <li><strong style="color:#fff">轻小件</strong> → 纸盒 / 气泡膜，省运费</li>
+        <li><strong style="color:#fff">重货长途</strong> → 重型纸箱 + 缓冲</li>
+        <li><strong style="color:#fff">食品接触</strong> → 食品级 PE 袋 / 玻璃瓶</li>
+        <li><strong style="color:#fff">品牌识别</strong> → 不干胶标签定制</li>
+      </ul>
+    </div>
+  </section>
+
+  <button class="nav-btn prev" aria-label="上一页">‹</button>
+  <button class="nav-btn next" aria-label="下一页">›</button>
+  <div class="dots" id="dots"></div>
+  <div class="counter" id="counter"></div>
+</div>
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  const dots = document.getElementById('dots');
+  const counter = document.getElementById('counter');
+  let i = 0;
+  slides.forEach((_, idx) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (idx === 0 ? ' active' : '');
+    d.onclick = () => go(idx);
+    dots.appendChild(d);
+  });
+  function render() {
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    [...dots.children].forEach((d, idx) => d.classList.toggle('active', idx === i));
+    counter.textContent = (i + 1) + ' / ' + slides.length;
+  }
+  function go(n) { i = (n + slides.length) % slides.length; render(); }
+  document.querySelector('.prev').onclick = () => go(i - 1);
+  document.querySelector('.next').onclick = () => go(i + 1);
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') go(i + 1);
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') go(i - 1);
+  });
+  render();
+</script>
+</body>
+</html>

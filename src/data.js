@@ -19,8 +19,69 @@ export const nav = [
   { id: 'skills', label: '技术栈' },
   { id: 'experience', label: '经历' },
   { id: 'projects', label: '作品' },
+  { id: 'ai-tools', label: 'AI工具' },
   { id: 'showcase', label: '演示' },
   { id: 'contact', label: '联系' },
+];
+
+// AI 工具箱（首页板块 + 独立子页面）
+// type: 'tutorial' = 教程页（ToolTutorial） | 'demo' = 可交互功能页
+// github 用搜索 URL，避免编造具体仓库地址导致 404
+export const aiTools = [
+  {
+    id: 'cc-switch',
+    icon: '🎛️',
+    name: 'cc-switch',
+    tagline: '开源 AI 供应商切换器',
+    desc: '一键切换多家 AI 供应商，统一管理 Skills 与 MCP，团队配置可共享。',
+    type: 'tutorial',
+    github: 'https://github.com/search?q=cc-switch+ai+provider&type=repositories',
+  },
+  {
+    id: 'open-design',
+    icon: '🎨',
+    name: 'open-design',
+    tagline: 'AI 设计稿生成',
+    desc: '用自然语言生成可编辑的设计稿，支持 BYOK 接入你自己的模型。',
+    type: 'tutorial',
+    github: 'https://github.com/search?q=open-design+ai&type=repositories',
+  },
+  {
+    id: 'page-agent',
+    icon: '🤖',
+    name: 'page-agent',
+    tagline: '自然语言操控网页',
+    desc: '用一句话筛选、排序、高亮页面元素，把网页变成可被语言指挥的界面。',
+    type: 'demo',
+    github: 'https://github.com/search?q=page-agent&type=repositories',
+  },
+  {
+    id: 'ai-website-cloner',
+    icon: '📋',
+    name: 'ai-website-cloner',
+    tagline: 'AI 克隆网站',
+    desc: '输入一个网址，自动抓取结构并生成可部署的本地项目。',
+    type: 'tutorial',
+    github: 'https://github.com/search?q=ai-website-cloner&type=repositories',
+  },
+  {
+    id: 'shannon',
+    icon: '🔒',
+    name: 'shannon',
+    tagline: '安全渗透扫描',
+    desc: 'Docker 一键部署的渗透测试与漏洞扫描工具，报告可读、可接 CI。',
+    type: 'tutorial',
+    github: 'https://github.com/search?q=shannon+security+scanner&type=repositories',
+  },
+  {
+    id: 'frontend-slides',
+    icon: '📊',
+    name: 'frontend-slides',
+    tagline: '前端幻灯片',
+    desc: '用前端组件写演示文稿，三套精美幻灯片可在线翻页体验。',
+    type: 'demo',
+    github: 'https://github.com/search?q=frontend-slides&type=repositories',
+  },
 ];
 
 // 技术栈（按分类展示）

@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { nav, profile } from '../data.js'
 import ThemeToggle from './ThemeToggle.jsx'
 
-export default function Navbar() {
+export default function Navbar({ route, onNavigate, onHome }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -16,19 +16,18 @@ export default function Navbar() {
 
   const go = (id) => {
     setOpen(false)
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    onNavigate(id)
   }
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass shadow-lg shadow-black/5' : 'bg-transparent'
+        scrolled || route ? 'glass shadow-lg shadow-black/5' : 'bg-transparent'
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
         <button
-          onClick={() => go('home')}
+          onClick={onHome}
           className="group flex items-center gap-2 text-lg font-extrabold tracking-tight"
         >
           <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand/15 text-brand ring-1 ring-brand/30 transition-transform group-hover:scale-105">
