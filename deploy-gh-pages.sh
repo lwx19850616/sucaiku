@@ -11,7 +11,9 @@
 #  gh-pages，不碰主仓库工作树，也不受 .gitignore 干扰。
 # ============================================================
 set -euo pipefail
-cd "$(dirname "$0")"
+# 先锁定仓库绝对路径（后续会 cd 进 /tmp 临时仓库，不能再依赖相对 $0）
+REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$REPO_DIR"
 
 [ -d dist ] || { echo "dist 不存在，请先运行 npm run build"; exit 1; }
 
@@ -27,7 +29,7 @@ git add -A
 git commit -q -m "deploy: gh-pages $(date +%F)"
 
 # 复用主仓库 remote URL（内含鉴权，无需重复填写）
-REPO_URL=$(git -C "$(dirname "$0")" remote get-url origin)
+REPO_URL=$(git -C "$REPO_DIR" remote get-url origin)
 git push --force "$REPO_URL" HEAD:gh-pages
 
 echo "部署完成：https://lwx19850616.github.io/sucaiku/"
