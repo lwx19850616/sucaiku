@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>个人作品集 · 幻灯片</title>
+<style>
+  :root { --brand: #f97316; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: radial-gradient(circle at 25% 15%, #1c1638, #0a0a12 60%),
+                radial-gradient(circle at 85% 85%, #0e2a3a, transparent 55%);
+    color: #ececf2; overflow: hidden;
+  }
+  .deck { position: relative; height: 100vh; width: 100%; }
+  .slide {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 9vh 9vw;
+    opacity: 0; transform: translateX(48px); transition: opacity .5s ease, transform .5s ease;
+    pointer-events: none; text-align: center;
+  }
+  .slide.active { opacity: 1; transform: none; pointer-events: auto; }
+  .kicker { letter-spacing: .32em; text-transform: uppercase; color: var(--brand); font-size: 13px; margin-bottom: 16px; }
+  h1 { font-size: clamp(30px, 6.5vw, 68px); font-weight: 800; line-height: 1.08; background: linear-gradient(120deg,#fff,#fcd9b6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h2 { font-size: clamp(24px, 4.5vw, 44px); font-weight: 700; margin-bottom: 22px; }
+  p, li { font-size: clamp(15px, 2.2vw, 20px); color: #b7b7c6; line-height: 1.75; }
+  .card { background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: 30px 38px; backdrop-filter: blur(10px); max-width: 760px; }
+  ul { margin: 8px 0 0 22px; text-align: left; }
+  li { margin: 7px 0; }
+  .pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 10px; }
+  .pill { background: rgba(249,115,22,.14); color: var(--brand); border: 1px solid rgba(249,115,22,.32); border-radius: 999px; padding: 8px 16px; font-size: 14px; }
+  .nav-btn { position: absolute; bottom: 26px; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #fff; font-size: 22px; cursor: pointer; transition: .25s; z-index: 5; }
+  .nav-btn:hover { background: var(--brand); border-color: var(--brand); }
+  .prev { right: 92px; } .next { right: 34px; }
+  .dots { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 5; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.25); cursor: pointer; transition: .3s; }
+  .dot.active { background: var(--brand); width: 28px; border-radius: 6px; }
+  .counter { position: absolute; bottom: 32px; left: 34px; font-size: 14px; color: #8a8a9a; z-index: 5; }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+  <section class="slide active">
+    <div class="kicker">About Me</div>
+    <h1>你好，我是 lwx</h1>
+    <p style="max-width:620px;margin-top:18px">全栈开发工程师，专注 Web 全栈与流畅交互。<br/>喜欢把想法打磨成产品，也喜欢在细节里找乐趣。</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Skills</div>
+    <h2>技术栈</h2>
+    <div class="pills">
+      <span class="pill">React</span><span class="pill">Vue</span><span class="pill">TypeScript</span>
+      <span class="pill">Tailwind CSS</span><span class="pill">Framer Motion</span>
+      <span class="pill">Node.js</span><span class="pill">PostgreSQL</span><span class="pill">Docker</span>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Projects</div>
+    <h2>精选作品</h2>
+    <div class="card">
+      <ul>
+        <li><strong style="color:#fff">StoreKit</strong> — 轻量电商交易平台</li>
+        <li><strong style="color:#fff">Coding Ducks</strong> — 实时编程练习平台</li>
+        <li><strong style="color:#fff">PeakPosts</strong> — AI 内容创作 SaaS</li>
+        <li><strong style="color:#fff">Kanbi</strong> — 实时协作看板</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Contact</div>
+    <h1>一起做点东西？</h1>
+    <p style="margin-top:18px">📧 1530711713@qq.com</p>
+    <p>💻 github.com/lwx19850616</p>
+  </section>
+
+  <button class="nav-btn prev" aria-label="上一页">‹</button>
+  <button class="nav-btn next" aria-label="下一页">›</button>
+  <div class="dots" id="dots"></div>
+  <div class="counter" id="counter"></div>
+</div>
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  const dots = document.getElementById('dots');
+  const counter = document.getElementById('counter');
+  let i = 0;
+  slides.forEach((_, idx) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (idx === 0 ? ' active' : '');
+    d.onclick = () => go(idx);
+    dots.appendChild(d);
+  });
+  function render() {
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    [...dots.children].forEach((d, idx) => d.classList.toggle('active', idx === i));
+    counter.textContent = (i + 1) + ' / ' + slides.length;
+  }
+  function go(n) { i = (n + slides.length) % slides.length; render(); }
+  document.querySelector('.prev').onclick = () => go(i - 1);
+  document.querySelector('.next').onclick = () => go(i + 1);
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') go(i + 1);
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') go(i - 1);
+  });
+  render();
+</script>
+</body>
+</html>
