@@ -196,6 +196,64 @@ const tutorials = {
       },
     ],
   },
+  'daily-stock-analysis': {
+    icon: '📈',
+    name: 'daily_stock_analysis',
+    tagline: 'LLM 驱动的多市场股票智能分析',
+    github: 'https://github.com/ZhuLinsen/daily_stock_analysis',
+    tags: ['Python', 'LLM', '股票分析', 'Actions'],
+    sections: [
+      {
+        title: '这是什么',
+        body: '基于 **AI 大模型**的 A股/港股/美股/日股/韩股/台股自选股分析系统（Python 3.10+，MIT 协议，GitHub ⭐59.7k）。每日自动生成「决策仪表盘」，推送到企业微信/飞书/Telegram/Discord/Slack/邮箱，**可通过 GitHub Actions 零成本定时运行**。\n> 核心输出：评分、买卖点位、风险警报、催化因素与操作检查清单。',
+      },
+      {
+        title: '1. 零成本部署（推荐 Actions）',
+        body: '- 打开仓库点击 **Fork** 到自己的账号\n- 在 `Settings → Secrets and variables → Actions` 配置 Secrets：\n- **AI 模型 Key**（至少一个）：`ANSPIRE_API_KEYS` / `GEMINI_API_KEY` / `DEEPSEEK_API_KEY` 等\n- **通知渠道**（至少一个）：`WECHAT_WEBHOOK_URL` / `FEISHU_WEBHOOK_URL` / `TELEGRAM_BOT_TOKEN` 等\n- **自选股列表**：`STOCK_LIST`，如 `600519,hk00700,AAPL,2330.TW`\n- 进入 **Actions** 标签手动 `Run workflow` 试跑\n> 默认每个**工作日 18:00（北京时间）**自动执行，非交易日（含 A/H/US 节假日）自动跳过。',
+      },
+      {
+        title: '2. 本地运行 / Docker',
+        body: '```bash\ngit clone https://github.com/ZhuLinsen/daily_stock_analysis.git\ncd daily_stock_analysis\npip install -r requirements.txt\ncp .env.example .env\npython main.py\n```\n常用命令：\n- `python main.py --dry-run` 只分析不推送\n- `python main.py --stocks 600519,hk00700,AAPL` 指定股票\n- `python main.py --market-review` 只跑大盘复盘\n- `python main.py --webui` 启动 Web 工作台（http://127.0.0.1:8000）',
+      },
+      {
+        title: '3. 核心设计：规则打分 + LLM',
+        body: '流水线：行情数据 → 技术面规则打分 → 新闻/舆情聚合 → LLM 综合分析 → 多渠道推送。\n技术面打分（满分 100）：**趋势 30 + 乖离率 20 + 量能 15 + 支撑 10 + MACD 15 + RSI 10**，全部用 pandas 自研实现，无 ta-lib 依赖，部署到 GitHub Actions 无编译问题。\n关键设计：\n- **分数与信号分离**：先算综合分再映射买卖信号；空头排列下即使分数够也不给买入（硬约束）\n- **强势趋势补偿**：强势多头时乖离率阈值放宽 1.5 倍，避免主升浪完全踏空\n- **多源 fallback**：AkShare/Baostock/YFinance 免费源默认可用，挂了自动降级切换',
+      },
+      {
+        title: '4. 推送效果示例',
+        body: '决策仪表盘长这样：\n```\n🎯 2026-02-08 决策仪表盘\n共分析3只股票 | 🟢买入:0 🟡观望:2 🔴卖出:1\n⚪ 中钨高新 (000657)\n💭 舆情情绪: 市场关注其AI属性与业绩高增长\n🚨 风险警报: 主力资金大幅净卖出，警惕短期抛压\n✨ 利好催化: AI服务器HDI核心供应商，扣非净利润同比+407%\n```\n大盘复盘则推送主要指数涨跌、涨跌家数与领涨板块。',
+      },
+    ],
+  },
+  'open-cli': {
+    icon: '⌨️',
+    name: 'OpenCLI',
+    tagline: '把任意网站变成 CLI',
+    github: 'https://github.com/jackwener/OpenCLI',
+    tags: ['Node.js', 'CLI', 'AI Agent', 'Browser'],
+    sections: [
+      {
+        title: '这是什么',
+        body: '**OpenCLI**（Node.js ≥ 20，Apache-2.0，GitHub ⭐27.5k）把网站、浏览器会话、Electron 应用和本地工具，统一变成适合人类与 **AI Agent** 使用的确定性 CLI 接口，内置 **100+ 站点适配器**（B站、知乎、小红书、Twitter/X、Reddit、HackerNews 等）。\n> 不用无头浏览器、不存账号密码——需要登录态的操作通过 Chrome 扩展复用你本人的浏览器会话，天然过登录墙。',
+      },
+      {
+        title: '1. 安装与快速开始',
+        body: '```bash\nnpm install -g @jackwener/opencli\n```\n再安装 Chrome 扩展（Chrome Web Store 搜 OpenCLI，或从 GitHub Releases 手动加载）。\n验证与上手：\n```bash\nopencli doctor                    # 检查环境\nopencli list                      # 查看全部命令\nopencli hackernews top --limit 5  # HN 热榜\nopencli bilibili hot --limit 5    # B站热门\n```',
+      },
+      {
+        title: '2. 三种用法',
+        body: '- **直接用适配器**：`opencli zhihu search "关键词"`、`opencli bilibili hot`\n- **给 AI Agent 装 skill**：\n```bash\nnpx skills add jackwener/opencli --skill opencli-browser\n```\n  之后在 Claude Code / Cursor 里直接说「帮我填一下这个表单」，Agent 会自动调用浏览器命令完成\n- **写新站点适配器**：用 `opencli-adapter-author` skill 一条龙完成侦察 → API 发现 → 字段解码 → 验证，产出可复用适配器',
+      },
+      {
+        title: '3. 架构原理',
+        body: '```\n用户 / AI Agent → opencli CLI 内核 → Browser Bridge(本地 daemon :19825) → Chrome 扩展\n```\n- **结构化 DOM 快照而非截图**：Agent 读取结构化页面快照，Token 消耗低、确定性高\n- **统一退出码**：`0` 成功 / `66` 无数据 / `69` 扩展未连接 / `75` 超时 / `77` 需认证，CI 可按失败模式分支\n- **三层覆盖**：内置适配器 < 用户 `~/.opencli/clis/` < 插件，靠注册时序后写覆盖',
+      },
+      {
+        title: '4. 输出与集成',
+        body: '```bash\nopencli bilibili hot -f table   # 给人看的表格\nopencli bilibili hot -f json    # JSON，喂 jq / AI Agent\nopencli xiaohongshu download "https://..." --output ./xhs  # 小红书图片/视频\nopencli external register longbridge  # 把本地 CLI 注册进统一入口\n```\n常见问题：\n- 报 `Extension not connected` → 检查 Chrome 扩展是否已启用\n- 返回空 / `Unauthorized` → 浏览器登录态过期，重新登录该站点\n- 启动即崩 → Node.js 版本需 ≥ 20',
+      },
+    ],
+  },
 }
 
 export default function ToolTutorial({ toolId }) {

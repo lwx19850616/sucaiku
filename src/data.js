@@ -26,7 +26,7 @@ export const nav = [
 
 // AI 工具箱（首页板块 + 独立子页面）
 // type: 'tutorial' = 教程页（ToolTutorial） | 'demo' = 可交互功能页
-// github 用搜索 URL，避免编造具体仓库地址导致 404
+// github：有真实仓库地址的填真实地址；没有的用搜索 URL，避免 404
 export const aiTools = [
   {
     id: 'cc-switch',
@@ -81,6 +81,24 @@ export const aiTools = [
     desc: '用前端组件写演示文稿，三套精美幻灯片可在线翻页体验。',
     type: 'demo',
     github: 'https://github.com/search?q=frontend-slides&type=repositories',
+  },
+  {
+    id: 'daily-stock-analysis',
+    icon: '📈',
+    name: 'daily_stock_analysis',
+    tagline: 'LLM 驱动的多市场股票智能分析',
+    desc: '每日自动生成 A股/港股/美股等 6 大市场的「决策仪表盘」，推送企微/飞书/Telegram，GitHub Actions 零成本定时运行。',
+    type: 'tutorial',
+    github: 'https://github.com/ZhuLinsen/daily_stock_analysis',
+  },
+  {
+    id: 'open-cli',
+    icon: '⌨️',
+    name: 'OpenCLI',
+    tagline: '把任意网站变成 CLI',
+    desc: '内置 100+ 站点适配器（B站/知乎/小红书/HN），复用你已登录的浏览器会话，让 AI Agent 也能操作任意网站。',
+    type: 'tutorial',
+    github: 'https://github.com/jackwener/OpenCLI',
   },
 ];
 

@@ -24,7 +24,7 @@ function getRoute() {
   return null
 }
 
-const TUTORIAL_IDS = ['cc-switch', 'open-design', 'ai-website-cloner', 'shannon']
+const TUTORIAL_IDS = ['cc-switch', 'open-design', 'ai-website-cloner', 'shannon', 'daily-stock-analysis', 'open-cli']
 
 function SubPage({ route }) {
   if (route === 'page-agent') return <PageAgentDemo />

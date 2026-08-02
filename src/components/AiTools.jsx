@@ -14,8 +14,8 @@ export default function AiTools() {
             AI 工具箱
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            精选 6 个值得一试的 AI 开源项目。点击卡片进入教程或在线体验 ——
-            其中 2 个可直接交互，4 个附带手把手教程。
+            精选 8 个值得一试的 AI 开源项目。点击卡片进入教程或在线体验 ——
+            其中 2 个可直接交互，6 个附带手把手教程。
           </p>
         </div>
       </Reveal>
